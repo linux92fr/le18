@@ -63,11 +63,7 @@ const Hero = () => {
               <div className="text-2xl font-bold">Justice</div>
               <div className="text-sm opacity-90">Sociale</div>
             </div>
-            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
-              <div className="text-2xl font-bold">Défense</div>
-              <div className="text-sm opacity-90">Services Publics</div>
-            </div>
-          </div>
+           </div>
 
         </div>
       </div>
