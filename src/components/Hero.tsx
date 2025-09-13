@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Users, Megaphone } from "lucide-react";
+import focomLogo from "@/assets/focom-logo.png";
 
 const Hero = () => {
   return (
@@ -10,6 +11,15 @@ const Hero = () => {
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
           
+          {/* Logo and Organization */}
+          <div className="flex items-center justify-center gap-4 mb-8">
+            <img src={focomLogo} alt="Logo FOCOM" className="h-16 w-16" />
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white">FOCOM</h2>
+              <p className="text-white/80">UES ILIAD</p>
+            </div>
+          </div>
+
           {/* Date Badge */}
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-white font-semibold text-lg shadow-glow">
             <Calendar className="h-5 w-5" />

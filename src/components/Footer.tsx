@@ -1,5 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Users } from "lucide-react";
+import focomLogo from "@/assets/focom-logo.png";
 
 const Footer = () => {
   return (
@@ -12,7 +13,7 @@ const Footer = () => {
           {/* Organization Info */}
           <div className="space-y-4">
             <div className="flex items-center gap-3 mb-6">
-              <Users className="h-8 w-8" />
+              <img src={focomLogo} alt="Logo FOCOM" className="h-12 w-12" />
               <div>
                 <h3 className="text-2xl font-bold">FOCOM</h3>
                 <p className="text-primary-foreground/80">UES ILIAD 2025</p>
