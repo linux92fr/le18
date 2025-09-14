@@ -155,24 +155,43 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
               </div>
 
               <div>
-                <Label htmlFor="ccEmailsUser">Noms d'utilisateur en copie (optionnel, séparés par des virgules)</Label>
-                <div className="flex">
-                  <Input
-                    id="ccEmailsUser"
-                    name="ccEmailsUser"
-                    value={formData.ccEmailsUser}
-                    onChange={handleInputChange}
-                    placeholder="votre RH, collègue2"
-                    className="rounded-r-none"
-                  />
-                  <div className="flex items-center px-3 bg-input border border-l-0 rounded-r-md">
-                    @iliad-free.fr
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie
-                </p>
-              </div>
+  <Label htmlFor="hierarchieUser">Nom d'utilisateur de votre hiérarchie directe *</Label>
+  <div className="flex">
+    <Input
+      id="hierarchieUser"
+      name="hierarchieUser"
+      value={formData.hierarchieUser}
+      onChange={handleInputChange}
+      placeholder="N+1"
+      required
+      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2"
+    />
+    <div className="flex items-center px-3 border border-input bg-background rounded-r-md text-sm text-muted-foreground">
+      @iliad-free.fr
+    </div>
+  </div>
+</div>
+
+<div>
+  <Label htmlFor="ccEmailsUser">Noms d'utilisateur en copie (optionnel, séparés par des virgules)</Label>
+  <div className="flex">
+    <Input
+      id="ccEmailsUser"
+      name="ccEmailsUser"
+      value={formData.ccEmailsUser}
+      onChange={handleInputChange}
+      placeholder="votre RH, collègue2"
+      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2"
+    />
+    <div className="flex items-center px-3 border border-input bg-background rounded-r-md text-sm text-muted-foreground">
+      @iliad-free.fr
+    </div>
+  </div>
+  <p className="text-xs text-muted-foreground mt-1">
+    L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie
+  </p>
+</div>
+
 
               <div>
                 <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
