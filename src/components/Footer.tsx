@@ -16,7 +16,7 @@ const Footer = () => {
               <img src={focomLogo} alt="Logo FOCOM" className="h-12 w-12" />
               <div>
                 <h3 className="text-2xl font-bold">FOCOM</h3>
-                <p className="text-primary-foreground/80">UES ILIAD 2025</p>
+                <p className="text-2xl font-bold">UES ILIAD 2025</p>
               </div>
             </div>
             <p className="text-primary-foreground/90 leading-relaxed">
