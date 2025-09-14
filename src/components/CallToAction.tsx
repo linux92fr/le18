@@ -28,6 +28,13 @@ const CallToAction = () => {
               Rejoins-nous pour défendre nos droits et nos services publics. 
               Ensemble, nous pouvons faire la différence !
             </p>
+            <div className="flex-shrink-0 w-32 md:w-48 h-auto mt-4 md:mt-0">
+              <img
+                src={poingImage}
+                alt="Poing levé"
+                className="w-full h-auto object-contain"
+              />
+            </div>
             
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <Button size="lg" className="bg-action-gradient text-white hover:shadow-glow transition-all duration-300 hover:scale-105 font-semibold px-8">
@@ -41,15 +48,7 @@ const CallToAction = () => {
               </Button>
             </div>
           </div>
-
-          <div className="flex-shrink-0 w-32 md:w-48 h-auto mt-4 md:mt-0">
-              <img
-                src={poingImage}
-                alt="Poing levé"
-                className="w-full h-auto object-contain"
-              />
-            </div>
-
+          
           {/* Supporting Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border">
