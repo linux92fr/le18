@@ -1,6 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import { Mail, Phone, MapPin, Users } from "lucide-react";
-import focomLogo from "@/assets/logo_OP_FOCOM.png.png";
+import focomLogo from "@/assets/logo_OP_FOCOM.png";
 
 const Footer = () => {
   return (
