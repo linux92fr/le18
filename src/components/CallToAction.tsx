@@ -1,5 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, ArrowRight, Users2 } from "lucide-react";
+import poingImage from "@/assets/ensemble_OP.png";
 
 const CallToAction = () => {
   return (
@@ -40,6 +41,14 @@ const CallToAction = () => {
               </Button>
             </div>
           </div>
+
+          <div className="flex-shrink-0 w-32 md:w-48 h-auto mt-4 md:mt-0">
+              <img
+                src={poingImage}
+                alt="Poing levé"
+                className="w-full h-auto object-contain"
+              />
+            </div>
 
           {/* Supporting Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
