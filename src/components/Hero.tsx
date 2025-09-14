@@ -14,7 +14,7 @@ const Hero = () => {
             <img src={focomLogo} alt="Logo FOCOM" className="h-16 w-16" />
             <div className="text-center">
               <h2 className="text-2xl font-bold text-white">FOCOM</h2>
-              <p className="text-white/80">UES ILIAD</p>
+              <p className="text-2xl font-bold text-white/80">UES ILIAD</p>
             </div>
           </div>
 
