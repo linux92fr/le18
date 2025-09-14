@@ -1,10 +1,8 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Users, Megaphone } from "lucide-react";
 import focomLogo from "@/assets/focom-logo.png";
-
 const Hero = () => {
-  return (
-    <section className="relative min-h-screen flex items-center justify-center bg-hero-gradient overflow-hidden">
+  return <section className="relative min-h-screen flex items-center justify-center bg-hero-gradient overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]" />
       
@@ -29,7 +27,7 @@ const Hero = () => {
           {/* Main Title */}
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
             <span className="block">TOUS</span>
-            <span className="block bg-text-gradient bg-clip-text text-transparent">
+            <span className="block bg-text-gradient bg-clip-text text-white">
               CONCERNÉS
             </span>
             <span className="block">TOUS MOBILISÉS</span>
@@ -63,7 +61,11 @@ const Hero = () => {
               <div className="text-2xl font-bold">Justice</div>
               <div className="text-sm opacity-90">Sociale</div>
             </div>
-           </div>
+            <div className="bg-white/10 backdrop-blur-sm rounded-lg p-4 text-white">
+              <div className="text-2xl font-bold">Défense</div>
+              <div className="text-sm opacity-90">Services Publics</div>
+            </div>
+          </div>
 
         </div>
       </div>
@@ -74,8 +76,6 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>
-  );
+    </section>;
 };
-
 export default Hero;
