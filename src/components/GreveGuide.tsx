@@ -13,8 +13,8 @@ const GreveGuide = () => {
     nom: "",
     prenom: "",
     service: "",
-    hierarchie: "",
-    ccEmails: "",
+    hierarchieUser: "", // Partie avant le @ pour la hiérarchie
+    ccEmailsUser: "",   // Partie avant le @ pour les emails en copie
     messagePersonnalise: ""
   });
 
@@ -27,7 +27,7 @@ const GreveGuide = () => {
 
   const generateMailLink = () => {
     const sujet = `Préavis de grève - ${formData.prenom} ${formData.nom}`;
-    const ccList = `cseuesiliad@iliad.fr${formData.ccEmails ? ',' + formData.ccEmails : ''}`;
+    const ccList = `cseuesiliad@iliad.fr${formData.ccEmailsUser ? ',' + formData.ccEmailsUser.split(',').map(email => email.trim() + '@iliad-free.fr').join(',') : ''}`;
 
     const corpsMessage = `
 Objet : Préavis de grève
@@ -42,9 +42,9 @@ Service : ${formData.service}
 ---
 Cette notification de grève est effectuée conformément à l'article L. 2512-2 du Code du travail.
 `;
-    const mailtoLink = `mailto:${formData.hierarchie}?cc=${encodeURIComponent(ccList)}&subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corpsMessage)}`;
 
-    window.open(mailtoLink);
+    const mailtoLink = `mailto:${formData.hierarchieUser}@iliad-free.fr?cc=${encodeURIComponent(ccList)}&subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corpsMessage)}`;
+    window.location.href = mailtoLink; // Utilise window.location.href pour plus de compatibilité
   };
 
   return (
@@ -67,7 +67,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
 
           {/* Droits du salarié */}
           <div className="flex flex-col md:flex-row items-center gap-8">
-            {/* Image ajoutée ici */}
             <div className="flex-shrink-0 w-48 h-auto mb-4 md:mb-0">
               <img
                 src={personnageImage}
@@ -75,8 +74,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                 className="w-full h-auto object-contain"
               />
             </div>
-
-            {/* Carte existante */}
             <Card className="shadow-card flex-1">
               <CardHeader>
                 <CardTitle className="flex items-center gap-3">
@@ -140,32 +137,56 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                   />
                 </div>
               </div>
+
               <div>
-                <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
+                <Label htmlFor="service">Service *</Label>
                 <Input
-                  id="hierarchie"
-                  name="hierarchie"
-                  type="email"
-                  value={formData.hierarchie}
+                  id="service"
+                  name="service"
+                  value={formData.service}
                   onChange={handleInputChange}
-                  placeholder="N+1@iliad-free.fr"
                   required
                 />
               </div>
+
               <div>
-                <Label htmlFor="ccEmails">Emails en copie (optionnel)</Label>
-                <Input
-                  id="ccEmails"
-                  name="ccEmails"
-                  type="email"
-                  value={formData.ccEmails}
-                  onChange={handleInputChange}
-                  placeholder="votre RH@iliad-free.fr, collègue2@iliad-free.fr"
-                />
+                <Label htmlFor="hierarchieUser">Nom d'utilisateur de votre hiérarchie directe *</Label>
+                <div className="flex">
+                  <Input
+                    id="hierarchieUser"
+                    name="hierarchieUser"
+                    value={formData.hierarchieUser}
+                    onChange={handleInputChange}
+                    placeholder="N+1"
+                    required
+                    className="rounded-r-none"
+                  />
+                  <div className="flex items-center px-3 bg-input border border-l-0 rounded-r-md">
+                    @iliad-free.fr
+                  </div>
+                </div>
+              </div>
+
+              <div>
+                <Label htmlFor="ccEmailsUser">Noms d'utilisateur en copie (optionnel, séparés par des virgules)</Label>
+                <div className="flex">
+                  <Input
+                    id="ccEmailsUser"
+                    name="ccEmailsUser"
+                    value={formData.ccEmailsUser}
+                    onChange={handleInputChange}
+                    placeholder="votre RH, collègue2"
+                    className="rounded-r-none"
+                  />
+                  <div className="flex items-center px-3 bg-input border border-l-0 rounded-r-md">
+                    @iliad-free.fr
+                  </div>
+                </div>
                 <p className="text-xs text-muted-foreground mt-1">
                   L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie
                 </p>
               </div>
+
               <div>
                 <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
                 <Textarea
@@ -177,10 +198,11 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                   rows={3}
                 />
               </div>
+
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
                   onClick={generateMailLink}
-                  disabled={!formData.prenom || !formData.nom || !formData.service || !formData.hierarchie}
+                  disabled={!formData.prenom || !formData.nom || !formData.service || !formData.hierarchieUser}
                   className="flex-1"
                   size="lg"
                 >
@@ -195,6 +217,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                   </a>
                 </Button>
               </div>
+
               <div className="bg-muted/50 p-4 rounded-lg">
                 <p className="text-sm text-muted-foreground">
                   <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
