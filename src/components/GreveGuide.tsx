@@ -206,12 +206,14 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                 </Button>
               </div>
 
-              {/* Note importante */}
               <div className="bg-muted/50 p-4 rounded-lg">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
-                  N'oubliez pas de joindre le tract des revendications en pièce jointe avant d'envoyer votre email. <br>Conformément à notre politique de confidentialité, aucune adresse email saisie via ce formulaire n’est collectée, stockée ou traitée sur nos serveurs.</br>
-                </p>
+  <p className="text-sm text-muted-foreground">
+    <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
+    N'oubliez pas de joindre le tract des revendications en pièce jointe avant d'envoyer votre email.<br />
+    Conformément à notre politique de confidentialité, aucune adresse email saisie via ce formulaire n’est collectée, stockée ou traitée sur nos serveurs.
+  </p>
+</div>
+
               </div>
             </CardContent>
           </Card>
