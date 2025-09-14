@@ -39,14 +39,7 @@ const Hero = () => {
               </span>
               <span className="block">TOUS MOBILISÉS</span>
             </h1>
-            <div className="flex-shrink-0 w-32 md:w-48 h-auto mt-4 md:mt-0">
-              <img
-                src={poingImage}
-                alt="Poing levé"
-                className="w-full h-auto object-contain"
-              />
             </div>
-          </div>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
