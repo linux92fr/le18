@@ -44,7 +44,7 @@ const CallToAction = () => {
           {/* Supporting Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border">
-              <div className="text-primary font-bold text-2xl mb-2">
+              <div className="text-white font-bold text-2xl mb-2">
                 Tous concernés
               </div>
               <p className="text-muted-foreground text-sm">
