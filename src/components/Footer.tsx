@@ -76,10 +76,10 @@ const Footer = () => {
           </div>
           
           <div className="flex items-center gap-6 text-sm">
-            <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">
+            <a href="/mentions-legales" className="text-primary-foreground/80 hover:text-white transition-colors">
               Mentions légales
             </a>
-            <a href="#" className="text-primary-foreground/80 hover:text-white transition-colors">
+            <a href="/politique-confidentialite" className="text-primary-foreground/80 hover:text-white transition-colors">
               Politique de confidentialité
             </a>
           </div>
