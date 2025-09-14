@@ -6,6 +6,7 @@ import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Mail, FileText, Scale, UserCheck } from "lucide-react";
+import personnageImage from "@/assets/luffy-chibi.png";
 
 const GreveGuide = () => {
   const [formData, setFormData] = useState({
@@ -74,36 +75,47 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
           </div>
 
           {/* Droits du salarié */}
-          <Card className="shadow-card">
-            <CardHeader>
-              <CardTitle className="flex items-center gap-3">
-                <UserCheck className="h-6 w-6 text-primary" />
-                Vos droits en tant que salarié du secteur privé
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-4">
-              <div className="grid md:grid-cols-2 gap-6">
-                <div>
-                  <h4 className="font-semibold text-lg mb-3 text-primary">✓ Vous avez le droit de :</h4>
-                  <ul className="space-y-2 text-sm">
-                    <li>• Participer à la grève sans autorisation préalable</li>
-                    <li>• Ne pas être sanctionné pour fait de grève</li>
-                    <li>• Retrouver votre poste à l'issue de la grève</li>
-                    <li>• Bénéficier de la protection contre le licenciement</li>
-                  </ul>
-                </div>
-                <div>
-                  <h4 className="font-semibold text-lg mb-3 text-destructive">⚠️ À savoir :</h4>
-                  <ul className="space-y-2 text-sm">
-                    <li>• La grève suspend le contrat de travail</li>
-                    <li>• Pas de rémunération pendant la grève</li>
-                    <li>• Préavis recommandé mais non obligatoire</li>
-                    <li>• Respecter les modalités d'exercice du droit de grève</li>
-                  </ul>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+<div className="flex flex-col md:flex-row items-center gap-8">
+  {/* Image ajoutée ici */}
+  <div className="flex-shrink-0 w-48 h-auto mb-4 md:mb-0">
+    <img
+      src={personnageImage}
+      alt="Personnage surprise"
+      className="w-full h-auto object-contain"
+    />
+  </div>
+
+  {/* Carte existante */}
+  <Card className="shadow-card flex-1">
+    <CardHeader>
+      <CardTitle className="flex items-center gap-3">
+        <UserCheck className="h-6 w-6 text-primary" />
+        Vos droits en tant que salarié du secteur privé
+      </CardTitle>
+    </CardHeader>
+    <CardContent className="space-y-4">
+      <div className="grid md:grid-cols-2 gap-6">
+        <div>
+          <h4 className="font-semibold text-lg mb-3 text-primary">✓ Vous avez le droit de :</h4>
+          <ul className="space-y-2 text-sm">
+            <li>• Participer à la grève sans autorisation préalable</li>
+            <li>• Ne pas être sanctionné pour fait de grève</li>
+            <li>• Retrouver votre poste à l'issue de la grève</li>
+            <li>• Bénéficier de la protection contre le licenciement</li>
+          </ul>
+        </div>
+        <div>
+          <h4 className="font-semibold text-lg mb-3 text-destructive">⚠️ À savoir :</h4>
+          <ul className="space-y-2 text-sm">
+            <li>• La grève suspend le contrat de travail</li>
+            <li>• Pas de rémunération pendant la grève</li>
+            <li>• Préavis recommandé mais non obligatoire</li>
+            <li>• Respecter les modalités d'exercice du droit de grève</li>
+          </ul>
+        </div>
+      </div>
+    </CardContent>
+  </Card>
 
           {/* Formulaire */}
           <Card className="shadow-card">
