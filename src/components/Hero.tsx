@@ -27,7 +27,7 @@ const Hero = () => {
           {/* Main Title */}
           <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
             <span className="block">TOUS</span>
-            <span className="block bg-text-gradient bg-clip-text text-white">
+            <span className="block bg-text-gradient bg-clip-text text-red">
               CONCERNÉS
             </span>
             <span className="block">TOUS MOBILISÉS</span>
