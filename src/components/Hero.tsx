@@ -11,12 +11,16 @@ const Hero = () => {
           
           {/* Logo and Organization */}
           <div className="flex items-center justify-center gap-4 mb-8">
-            <img src={focomLogo} alt="Logo FOCOM" className="h-16 w-16" />
-            <div className="text-center">
-              <h2 className="text-2xl font-bold text-white">FOCOM</h2>
-              <p className="text-2xl font-bold text-white/80">UES ILIAD</p>
-            </div>
-          </div>
+  <img
+    src={focomLogo}
+    alt="Logo FOCOM"
+    className="h-16 w-16 transition-transform duration-300 hover:scale-110"
+  />
+  <div className="text-center">
+    <h2 className="text-2xl font-bold text-white">FOCOM</h2>
+    <p className="text-2xl font-bold text-white/80">UES ILIAD</p>
+  </div>
+</div>
 
           {/* Date Badge */}
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-white font-semibold text-lg shadow-glow">
