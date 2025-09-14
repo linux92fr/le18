@@ -11,8 +11,7 @@ import personnageImage from "@/assets/luffy-chibi.png";
 const GreveGuide = () => {
   const [formData, setFormData] = useState({
     nom: "",
-    prenom: "",
-    service: "",
+    prenom: "",   
     hierarchieUser: "", // Partie avant le @ pour la hiérarchie
     ccEmailsUser: "",   // Partie avant le @ pour les emails en copie
     messagePersonnalise: ""
@@ -38,7 +37,6 @@ ${formData.messagePersonnalise ? `\n${formData.messagePersonnalise}\n` : ''}
 Je vous prie de trouver ci-joint le tract détaillant les revendications du mouvement.
 Cordialement,
 ${formData.prenom} ${formData.nom}
-Service : ${formData.service}
 ---
 Cette notification de grève est effectuée conformément à l'article L. 2512-2 du Code du travail.
 `;
@@ -136,18 +134,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                     required
                   />
                 </div>
-              </div>
-
-              <div>
-                <Label htmlFor="service">Service *</Label>
-                <Input
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  required
-                />
-              </div>
+              </div>              
 
               <div>
                 <Label htmlFor="hierarchieUser">Nom d'utilisateur de votre hiérarchie directe *</Label>
@@ -202,7 +189,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
                   onClick={generateMailLink}
-                  disabled={!formData.prenom || !formData.nom || !formData.service || !formData.hierarchieUser}
+                  disabled={!formData.prenom || !formData.nom || !formData.hierarchieUser}
                   className="flex-1"
                   size="lg"
                 >
