@@ -1,26 +1,28 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Users, Megaphone } from "lucide-react";
 import focomLogo from "@/assets/logo_OP_FOCOM.png";
+import poingImage from "@/assets/ensemble_OP.png";
+
 const Hero = () => {
-  return <section className="relative min-h-screen flex items-center justify-center bg-hero-gradient overflow-hidden">
+  return (
+    <section className="relative min-h-screen flex items-center justify-center bg-hero-gradient overflow-hidden">
       {/* Background Pattern */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(255,255,255,0.1),transparent_70%)]" />
-      
+
       <div className="relative z-10 container mx-auto px-4 text-center">
         <div className="max-w-4xl mx-auto space-y-8">
-          
           {/* Logo and Organization */}
           <div className="flex items-center justify-center gap-4 mb-8">
-  <img
-    src={focomLogo}
-    alt="Logo FOCOM"
-    className="h-16 w-16 transition-transform duration-300 hover:scale-150"
-  />
-  <div className="text-center">
-    <h2 className="text-2xl font-bold text-white">FOCOM</h2>
-    <p className="text-2xl font-bold text-white/80">UES ILIAD</p>
-  </div>
-</div>
+            <img
+              src={focomLogo}
+              alt="Logo FOCOM"
+              className="h-16 w-16 transition-transform duration-300 hover:scale-150"
+            />
+            <div className="text-center">
+              <h2 className="text-2xl font-bold text-white">FOCOM</h2>
+              <p className="text-2xl font-bold text-white/80">UES ILIAD</p>
+            </div>
+          </div>
 
           {/* Date Badge */}
           <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-white font-semibold text-lg shadow-glow">
@@ -28,18 +30,27 @@ const Hero = () => {
             18 SEPTEMBRE
           </div>
 
-          {/* Main Title */}
-          <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight">
-            <span className="block">TOUS</span>
-            <span className="block bg-text-gradient bg-clip-text text-red">
-              CONCERNÉS
-            </span>
-            <span className="block">TOUS MOBILISÉS</span>
-          </h1>
+          {/* Main Title avec image */}
+          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
+            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight text-center">
+              <span className="block">TOUS</span>
+              <span className="block bg-text-gradient bg-clip-text text-transparent">
+                CONCERNÉS
+              </span>
+              <span className="block">TOUS MOBILISÉS</span>
+            </h1>
+            <div className="flex-shrink-0 w-32 md:w-48 h-auto mt-4 md:mt-0">
+              <img
+                src={poingImage}
+                alt="Poing levé"
+                className="w-full h-auto object-contain"
+              />
+            </div>
+          </div>
 
           {/* Subtitle */}
           <p className="text-xl md:text-2xl text-white/90 max-w-3xl mx-auto leading-relaxed">
-            Contre l'austérité pour les salariés et les services publics. 
+            Contre l'austérité pour les salariés et les services publics.
             La facture du "quoi qu'il en coûte" ne doit pas peser sur les travailleurs.
           </p>
 
@@ -70,7 +81,6 @@ const Hero = () => {
               <div className="text-sm opacity-90">Services Publics</div>
             </div>
           </div>
-
         </div>
       </div>
 
@@ -80,6 +90,8 @@ const Hero = () => {
           <div className="w-1 h-3 bg-white/70 rounded-full mt-2 animate-pulse"></div>
         </div>
       </div>
-    </section>;
+    </section>
+  );
 };
+
 export default Hero;
