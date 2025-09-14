@@ -145,7 +145,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                   type="email"
                   value={formData.hierarchie}
                   onChange={handleInputChange}
-                  placeholder="manager@iliad.fr"
+                  placeholder="N+1@iliad-free.fr"
                   required
                 />
               </div>
@@ -158,7 +158,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                   type="email"
                   value={formData.ccEmails}
                   onChange={handleInputChange}
-                  placeholder="collègue1@iliad.fr, collègue2@iliad.fr"
+                  placeholder="votre RH@iliad-free.fr, collègue2@iliad-free.fr"
                 />
                 <p className="text-xs text-muted-foreground mt-1">
                   L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie
