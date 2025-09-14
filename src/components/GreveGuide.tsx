@@ -25,7 +25,7 @@ const GreveGuide = () => {
   };
 
   const generateMailLink = () => {
-    const sujet = `Préavis de grève 
+    const sujet = `Préavis de grève'; 
     const ccList = `cseuesiliad@iliad.fr${formData.ccEmailsUser ? ',' + formData.ccEmailsUser.split(',').map(email => email.trim() + '@iliad-free.fr').join(',') : ''}`;
 
     const corpsMessage = `
