@@ -25,18 +25,18 @@ const GreveGuide = () => {
   };
 
   const generateMailLink = () => {
-    const sujet = `Préavis de grève - ${formData.prenom} ${formData.nom}`;
+    const sujet = `Préavis de grève 
     const ccList = `cseuesiliad@iliad.fr${formData.ccEmailsUser ? ',' + formData.ccEmailsUser.split(',').map(email => email.trim() + '@iliad-free.fr').join(',') : ''}`;
 
     const corpsMessage = `
 Objet : Préavis de grève
 Bonjour,
-Je vous informe de mon intention de participer à la grève prévue le 18 septembre 2025, dans le cadre des revendications portées par FOCOM UES ILIAD.
+Je vous informe de mon intention de participer à la grève prévue le 18 septembre 2025, dans le cadre des revendications portées par l'organisation syndicale représentative FOCOM UES ILIAD.
 Conformément aux dispositions légales en vigueur, je vous notifie par avance ma participation à ce mouvement de grève.
 ${formData.messagePersonnalise ? `\n${formData.messagePersonnalise}\n` : ''}
 Je vous prie de trouver ci-joint le tract détaillant les revendications du mouvement.
-Cordialement,
-${formData.prenom} ${formData.nom}
+Cordialement.
+
 ---
 Cette notification de grève est effectuée conformément à l'article L. 2512-2 du Code du travail.
 `;
