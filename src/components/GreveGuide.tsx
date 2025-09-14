@@ -11,7 +11,7 @@ import personnageImage from "@/assets/luffy-chibi.png";
 const GreveGuide = () => {
   const [formData, setFormData] = useState({
     nom: "",
-    prenom: "",   
+    prenom: "",
     hierarchieUser: "", // Partie avant le @ pour la hiérarchie
     ccEmailsUser: "",   // Partie avant le @ pour les emails en copie
     messagePersonnalise: ""
@@ -42,7 +42,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
 `;
 
     const mailtoLink = `mailto:${formData.hierarchieUser}@iliad-free.fr?cc=${encodeURIComponent(ccList)}&subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corpsMessage)}`;
-    window.location.href = mailtoLink; // Utilise window.location.href pour plus de compatibilité
+    window.location.href = mailtoLink;
   };
 
   return (
@@ -134,65 +134,49 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                     required
                   />
                 </div>
-              </div>              
+              </div>
 
+              {/* Champ email hiérarchie */}
               <div>
-                <Label htmlFor="hierarchieUser">Nom d'utilisateur de votre hiérarchie directe *</Label>
+                <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
                 <div className="flex">
                   <Input
-                    id="hierarchieUser"
+                    id="hierarchie"
                     name="hierarchieUser"
                     value={formData.hierarchieUser}
                     onChange={handleInputChange}
                     placeholder="N+1"
                     required
-                    className="rounded-r-none"
+                    className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2"
                   />
-                  <div className="flex items-center px-3 bg-input border border-l-0 rounded-r-md">
+                  <div className="flex items-center px-3 border border-input bg-background rounded-r-md text-sm text-muted-foreground">
                     @iliad-free.fr
                   </div>
                 </div>
               </div>
 
+              {/* Champ emails en copie */}
               <div>
-  <Label htmlFor="hierarchieUser">Nom d'utilisateur de votre hiérarchie directe *</Label>
-  <div className="flex">
-    <Input
-      id="hierarchieUser"
-      name="hierarchieUser"
-      value={formData.hierarchieUser}
-      onChange={handleInputChange}
-      placeholder="N+1"
-      required
-      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2"
-    />
-    <div className="flex items-center px-3 border border-input bg-background rounded-r-md text-sm text-muted-foreground">
-      @iliad-free.fr
-    </div>
-  </div>
-</div>
+                <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
+                <div className="flex">
+                  <Input
+                    id="ccEmails"
+                    name="ccEmailsUser"
+                    value={formData.ccEmailsUser}
+                    onChange={handleInputChange}
+                    placeholder="votre RH, collègue2"
+                    className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2"
+                  />
+                  <div className="flex items-center px-3 border border-input bg-background rounded-r-md text-sm text-muted-foreground">
+                    @iliad-free.fr
+                  </div>
+                </div>
+                <p className="text-xs text-muted-foreground mt-1">
+                  L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
+                </p>
+              </div>
 
-<div>
-  <Label htmlFor="ccEmailsUser">Noms d'utilisateur en copie (optionnel, séparés par des virgules)</Label>
-  <div className="flex">
-    <Input
-      id="ccEmailsUser"
-      name="ccEmailsUser"
-      value={formData.ccEmailsUser}
-      onChange={handleInputChange}
-      placeholder="votre RH, collègue2"
-      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2"
-    />
-    <div className="flex items-center px-3 border border-input bg-background rounded-r-md text-sm text-muted-foreground">
-      @iliad-free.fr
-    </div>
-  </div>
-  <p className="text-xs text-muted-foreground mt-1">
-    L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie
-  </p>
-</div>
-
-
+              {/* Champ message personnalisé */}
               <div>
                 <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
                 <Textarea
@@ -205,6 +189,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                 />
               </div>
 
+              {/* Boutons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
                   onClick={generateMailLink}
@@ -215,7 +200,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                   <Mail className="h-5 w-5 mr-2" />
                   Ouvrir dans ma messagerie
                 </Button>
-
                 <Button variant="outline" size="lg" asChild>
                   <a href="/tract-revendications.pdf" download="Tract_Revendications_FOCOM_18Sept.pdf">
                     <FileText className="h-5 w-5 mr-2" />
@@ -224,6 +208,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                 </Button>
               </div>
 
+              {/* Note importante */}
               <div className="bg-muted/50 p-4 rounded-lg">
                 <p className="text-sm text-muted-foreground">
                   <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
