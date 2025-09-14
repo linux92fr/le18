@@ -15,18 +15,16 @@ const MentionsLegales = () => {
               <h2 className="text-2xl font-semibold mb-4 text-primary">Éditeur du site</h2>
               <div className="bg-card rounded-lg p-6">
                 <p><strong>Organisation :</strong> FOCOM UES ILIAD</p>
-                <p><strong>Siège social :</strong> [Adresse à compléter]</p>
                 <p><strong>Email :</strong> contact@focomues-iliad.fr</p>
-                <p><strong>Téléphone :</strong> [Numéro à compléter]</p>
               </div>
             </section>
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-primary">Hébergement</h2>
               <div className="bg-card rounded-lg p-6">
-                <p>Ce site est hébergé par :</p>
-                <p><strong>Hébergeur :</strong> [Nom de l'hébergeur]</p>
-                <p><strong>Adresse :</strong> [Adresse de l'hébergeur]</p>
+                <p>Ce site est hébergé par : </p>
+                <p><strong>Hébergeur :</strong> o2switch</p>
+                <p><strong>Adresse :</strong> https://www.o2switch.fr</p>
               </div>
             </section>
 
