@@ -36,11 +36,7 @@ const Footer = () => {
               <div className="flex items-center gap-3 text-primary-foreground/90">
                 <Mail className="h-4 w-4" />
                 <span className="text-sm">contact@focomues-iliad.fr</span>
-              </div>
-              <div className="flex items-center gap-3 text-primary-foreground/90">
-                <Phone className="h-4 w-4" />
-                <span className="text-sm">01 XX XX XX XX</span>
-              </div>
+              </div>              
             </div>
           </div>
 
