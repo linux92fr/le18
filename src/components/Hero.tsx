@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { Calendar, Users, Megaphone } from "lucide-react";
-import focomLogo from "@/assets/focom-logo.png";
+import focomLogo from "@/assets/logo_OP_FOCOM.png";
 const Hero = () => {
   return <section className="relative min-h-screen flex items-center justify-center bg-hero-gradient overflow-hidden">
       {/* Background Pattern */}
