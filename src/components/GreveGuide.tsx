@@ -12,8 +12,8 @@ const GreveGuide = () => {
   const [formData, setFormData] = useState({
     nom: "",
     prenom: "",
-    hierarchieUser: "", // Partie avant le @ pour la hiérarchie
-    ccEmailsUser: "",   // Partie avant le @ pour les emails en copie
+    hierarchieUser: "",
+    ccEmailsUser: "",
     messagePersonnalise: ""
   });
 
@@ -24,10 +24,10 @@ const GreveGuide = () => {
     });
   };
 
-const generateMailLink = () => {
-  const sujet = `Préavis de grève - ${formData.prenom} ${formData.nom}`; // Backticks fermés et point-virgule
-  const ccList = `cseuesiliad@iliad.fr${formData.ccEmailsUser ? ',' + formData.ccEmailsUser.split(',').map(email => email.trim() + '@iliad-free.fr').join(',') : ''}`; // Backticks fermés et point-virgule
-  const corpsMessage = `
+  const generateMailLink = () => {
+    const sujet = `Préavis de grève - ${formData.prenom} ${formData.nom}`;
+    const ccList = `cseuesiliad@iliad.fr${formData.ccEmailsUser ? ',' + formData.ccEmailsUser.split(',').map(email => email.trim() + '@iliad-free.fr').join(',') : ''}`;
+    const corpsMessage = `
 Objet : Préavis de grève
 Bonjour,
 Je vous informe de mon intention de participer à la grève prévue le 18 septembre 2025, dans le cadre des revendications portées par l'organisation syndicale représentative FOCOM UES ILIAD.
@@ -38,10 +38,9 @@ Cordialement.
 ---
 Cette notification de grève est effectuée conformément à l'article L. 2512-2 du Code du travail.
 `;
-  const mailtoLink = `mailto:${formData.hierarchieUser}@iliad-free.fr?cc=${encodeURIComponent(ccList)}&subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corpsMessage)}`;
-  window.location.href = mailtoLink;
-};
-
+    const mailtoLink = `mailto:${formData.hierarchieUser}@iliad-free.fr?cc=${encodeURIComponent(ccList)}&subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corpsMessage)}`;
+    window.location.href = mailtoLink;
+  };
 
   return (
     <section className="py-16 bg-surface-gradient" id="comment-faire-greve">
@@ -206,14 +205,13 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                 </Button>
               </div>
 
+              {/* Note importante */}
               <div className="bg-muted/50 p-4 rounded-lg">
-  <p className="text-sm text-muted-foreground">
-    <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
-    N'oubliez pas de joindre le tract des revendications en pièce jointe avant d'envoyer votre email.<br />
-    Conformément à notre politique de confidentialité, aucune adresse email saisie via ce formulaire n’est collectée, stockée ou traitée sur nos serveurs.
-  </p>
-</div>
-
+                <p className="text-sm text-muted-foreground">
+                  <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
+                  N'oubliez pas de joindre le tract des revendications en pièce jointe avant d'envoyer votre email.<br />
+                  Conformément à notre politique de confidentialité, aucune adresse email saisie via ce formulaire n’est collectée, stockée ou traitée sur nos serveurs.
+                </p>
               </div>
             </CardContent>
           </Card>
