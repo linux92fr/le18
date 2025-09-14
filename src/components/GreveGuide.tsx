@@ -31,9 +31,9 @@ const GreveGuide = () => {
     const corpsMessage = `
 Objet : Préavis de grève
 
-Madame, Monsieur,
+Bonjour,
 
-Par la présente, je vous informe de mon intention de participer à la grève prévue le 18 septembre 2024, dans le cadre des revendications portées par FOCOM UES ILIAD.
+Je vous informe de mon intention de participer à la grève prévue le 18 septembre 2025, dans le cadre des revendications portées par FOCOM UES ILIAD.
 
 Conformément aux dispositions légales en vigueur, je vous notifie par avance ma participation à ce mouvement de grève.
 
