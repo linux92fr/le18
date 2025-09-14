@@ -138,18 +138,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
               </div>
 
               <div>
-                <Label htmlFor="service">Service / Département *</Label>
-                <Input
-                  id="service"
-                  name="service"
-                  value={formData.service}
-                  onChange={handleInputChange}
-                  placeholder="Ex: Service Client, Technique, RH..."
-                  required
-                />
-              </div>
-
-              <div>
                 <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
                 <Input
                   id="hierarchie"
