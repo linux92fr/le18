@@ -50,12 +50,6 @@ const Footer = () => {
               <a href="#mobilisation" className="block text-primary-foreground/90 hover:text-white transition-colors text-sm">
                 Mobilisation 18 septembre
               </a>
-              <a href="#" className="block text-primary-foreground/90 hover:text-white transition-colors text-sm">
-                Adhérer au syndicat
-              </a>
-              <a href="#" className="block text-primary-foreground/90 hover:text-white transition-colors text-sm">
-                Nos actualités
-              </a>
             </div>
           </div>
 
