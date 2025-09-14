@@ -14,7 +14,7 @@ const Hero = () => {
   <img
     src={focomLogo}
     alt="Logo FOCOM"
-    className="h-16 w-16 transition-transform duration-300 hover:scale-110"
+    className="h-16 w-16 transition-transform duration-300 hover:scale-150"
   />
   <div className="text-center">
     <h2 className="text-2xl font-bold text-white">FOCOM</h2>
