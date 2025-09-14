@@ -134,44 +134,45 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
               </div>
 
               {/* Champ email hiérarchie */}
-              <div>
-                <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
-                <div className="flex">
-                  <Input
-                    id="hierarchie"
-                    name="hierarchieUser"
-                    value={formData.hierarchieUser}
-                    onChange={handleInputChange}
-                    placeholder="N+1"
-                    required
-                    className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2"
-                  />
-                  <div className="flex items-center px-3 border border-input bg-background rounded-r-md text-sm text-muted-foreground">
-                    @iliad-free.fr
-                  </div>
-                </div>
-              </div>
+<div>
+  <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
+  <div className="flex w-full max-w-sm"> {/* Ajout de w-full max-w-sm pour limiter la largeur */}
+    <Input
+      id="hierarchie"
+      name="hierarchieUser"
+      value={formData.hierarchieUser}
+      onChange={handleInputChange}
+      placeholder="N+1"
+      required
+      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0" // flex-1 et min-w-0 pour éviter le débordement
+    />
+    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap"> {/* whitespace-nowrap pour éviter le retour à la ligne */}
+      @iliad-free.fr
+    </div>
+  </div>
+</div>
 
-              {/* Champ emails en copie */}
-              <div>
-                <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
-                <div className="flex">
-                  <Input
-                    id="ccEmails"
-                    name="ccEmailsUser"
-                    value={formData.ccEmailsUser}
-                    onChange={handleInputChange}
-                    placeholder="votre RH, collègue2"
-                    className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2"
-                  />
-                  <div className="flex items-center px-3 border border-input bg-background rounded-r-md text-sm text-muted-foreground">
-                    @iliad-free.fr
-                  </div>
-                </div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
-                </p>
-              </div>
+{/* Champ emails en copie */}
+<div>
+  <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
+  <div className="flex w-full max-w-sm"> {/* Même ajustement ici */}
+    <Input
+      id="ccEmails"
+      name="ccEmailsUser"
+      value={formData.ccEmailsUser}
+      onChange={handleInputChange}
+      placeholder="votre RH, collègue2"
+      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0" // flex-1 et min-w-0
+    />
+    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap"> {/* whitespace-nowrap */}
+      @iliad-free.fr
+    </div>
+  </div>
+  <p className="text-xs text-muted-foreground mt-1">
+    L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
+  </p>
+</div>
+
 
               {/* Champ message personnalisé */}
               <div>
