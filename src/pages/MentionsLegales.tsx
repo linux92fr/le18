@@ -1,10 +1,13 @@
 import Footer from "@/components/Footer";
+import BackButton from "@/components/BackButton";
+import ScrollToTop from "@/components/ScrollToTop";
 
 const MentionsLegales = () => {
   return (
     <div className="min-h-screen bg-background">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
+          <BackButton />
           <h1 className="text-4xl font-bold mb-8 text-center">Mentions Légales</h1>
           
           <div className="prose prose-lg max-w-none text-foreground space-y-8">
@@ -64,6 +67,7 @@ const MentionsLegales = () => {
         </div>
       </div>
       <Footer />
+      <ScrollToTop />
     </div>
   );
 };
