@@ -17,7 +17,7 @@ const GreveGuide = () => {
     messagePersonnalise: ""
   });
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (e) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -59,7 +59,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
               Vos droits et les démarches à suivre pour exercer votre droit de grève dans le secteur privé
             </p>
           </div>
-
           {/* Droits du salarié */}
           <div className="flex flex-col md:flex-row items-center gap-8">
             <div className="flex-shrink-0 w-48 h-auto mb-4 md:mb-0">
@@ -100,58 +99,56 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
               </CardContent>
             </Card>
           </div>
-
           {/* Formulaire */}
           <Card className="shadow-card">
             <CardHeader>
-              <CardTitle className="flex items-center gap-3">
+              <CardTitle className="flex items-center gap-3 text-center justify-center">
                 <Mail className="h-6 w-6 text-primary" />
                 Générer votre notification de grève
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">          
-
-              {/* Champ email hiérarchie */}
-<div>
-  <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
-  <div className="flex w-full max-w-sm"> {/* Ajout de w-full max-w-sm pour limiter la largeur */}
-    <Input
-      id="hierarchie"
-      name="hierarchieUser"
-      value={formData.hierarchieUser}
-      onChange={handleInputChange}
-      placeholder="N+1"
-      required
-      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0" // flex-1 et min-w-0 pour éviter le débordement
-    />
-    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap"> {/* whitespace-nowrap pour éviter le retour à la ligne */}
-      @iliad-free.fr
-    </div>
-  </div>
-</div>
-
-{/* Champ emails en copie */}
-<div>
-  <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
-  <div className="flex w-full max-w-sm"> {/* Même ajustement ici */}
-    <Input
-      id="ccEmails"
-      name="ccEmailsUser"
-      value={formData.ccEmailsUser}
-      onChange={handleInputChange}
-      placeholder="votre RH, collègue2"
-      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0" // flex-1 et min-w-0
-    />
-    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap"> {/* whitespace-nowrap */}
-      @iliad-free.fr
-    </div>
-  </div>
-  <p className="text-xs text-muted-foreground mt-1">
-    L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
-  </p>
-</div>
-
-
+            <CardContent className="space-y-6">
+              {/* Conteneur centré pour les champs */}
+              <div className="flex flex-col items-center w-full">
+                {/* Champ email hiérarchie */}
+                <div className="w-full max-w-md">
+                  <Label htmlFor="hierarchie" className="text-center block">Email de votre hiérarchie directe *</Label>
+                  <div className="flex w-full">
+                    <Input
+                      id="hierarchie"
+                      name="hierarchieUser"
+                      value={formData.hierarchieUser}
+                      onChange={handleInputChange}
+                      placeholder="N+1"
+                      required
+                      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0"
+                    />
+                    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap">
+                      @iliad-free.fr
+                    </div>
+                  </div>
+                </div>
+                {/* Champ emails en copie */}
+                <div className="w-full max-w-md">
+                  <Label htmlFor="ccEmails" className="text-center block">Emails en copie (optionnel, séparés par des virgules)</Label>
+                  <div className="flex w-full">
+                    <Input
+                      id="ccEmails"
+                      name="ccEmailsUser"
+                      value={formData.ccEmailsUser}
+                      onChange={handleInputChange}
+                      placeholder="votre RH, collègue2"
+                      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0"
+                    />
+                    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap">
+                      @iliad-free.fr
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1 text-center">
+                    L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
+                  </p>
+                </div>
+              </div>
               {/* Champ message personnalisé */}
               <div>
                 <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
@@ -164,7 +161,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                   rows={3}
                 />
               </div>
-
               {/* Boutons */}
               <div className="flex flex-col sm:flex-row gap-4 pt-4">
                 <Button
@@ -183,7 +179,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                   </a>
                 </Button>
               </div>
-
               {/* Note importante */}
               <div className="bg-muted/50 p-4 rounded-lg">
                 <p className="text-sm text-muted-foreground">
