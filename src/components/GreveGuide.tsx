@@ -10,8 +10,6 @@ import personnageImage from "@/assets/luffy-chibi.png";
 
 const GreveGuide = () => {
   const [formData, setFormData] = useState({
-    nom: "",
-    prenom: "",
     hierarchieUser: "",
     ccEmailsUser: "",
     messagePersonnalise: ""
@@ -25,7 +23,7 @@ const GreveGuide = () => {
   };
 
   const generateMailLink = () => {
-    const sujet = `Préavis de grève - ${formData.prenom} ${formData.nom}`;
+    const sujet = `Préavis de grève`;
     const ccList = `cseuesiliad@iliad.fr${formData.ccEmailsUser ? ',' + formData.ccEmailsUser.split(',').map(email => email.trim() + '@iliad-free.fr').join(',') : ''}`;
     const corpsMessage = `
 Objet : Préavis de grève
@@ -111,34 +109,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
             </CardHeader>
             <CardContent className="space-y-6">
               <div className="max-w-2xl mx-auto space-y-6">
-                {/* Champs nom et prénom */}
-                <div className="grid md:grid-cols-2 gap-4">
-                  <div>
-                    <Label htmlFor="prenom">Prénom *</Label>
-                    <Input
-                      id="prenom"
-                      name="prenom"
-                      value={formData.prenom}
-                      onChange={handleInputChange}
-                      placeholder="Votre prénom"
-                      required
-                      className="w-full"
-                    />
-                  </div>
-                  <div>
-                    <Label htmlFor="nom">Nom *</Label>
-                    <Input
-                      id="nom"
-                      name="nom"
-                      value={formData.nom}
-                      onChange={handleInputChange}
-                      placeholder="Votre nom"
-                      required
-                      className="w-full"
-                    />
-                  </div>
-                </div>
-
                 {/* Champ email hiérarchie */}
                 <div>
                   <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
@@ -197,7 +167,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button
                     onClick={generateMailLink}
-                    disabled={!formData.prenom || !formData.nom || !formData.hierarchieUser}
+                    disabled={!formData.hierarchieUser}
                     className="flex-1"
                     size="lg"
                   >
