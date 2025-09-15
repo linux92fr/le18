@@ -32,7 +32,7 @@ const Hero = () => {
 
           {/* Main Title avec image */}
           <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8">
-            <h1 className="text-5xl md:text-7xl font-bold text-white leading-tight text-center">
+            <h1 className="text-5xl md:text-7xl font-bold text-red leading-tight text-center">
               <span className="block">TOUS</span>
               <span className="block bg-text-gradient bg-clip-text text-transparent">
                 CONCERNÉS
