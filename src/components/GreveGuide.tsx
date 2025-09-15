@@ -109,29 +109,7 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                 Générer votre notification de grève
               </CardTitle>
             </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-4">
-                <div>
-                  <Label htmlFor="prenom">Prénom *</Label>
-                  <Input
-                    id="prenom"
-                    name="prenom"
-                    value={formData.prenom}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-                <div>
-                  <Label htmlFor="nom">Nom *</Label>
-                  <Input
-                    id="nom"
-                    name="nom"
-                    value={formData.nom}
-                    onChange={handleInputChange}
-                    required
-                  />
-                </div>
-              </div>
+            <CardContent className="space-y-6">          
 
               {/* Champ email hiérarchie */}
 <div>
