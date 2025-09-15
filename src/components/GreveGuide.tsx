@@ -104,91 +104,122 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
           {/* Formulaire */}
           <Card className="shadow-card">
             <CardHeader>
-              <CardTitle className="flex items-center gap-3">
+              <CardTitle className="flex items-center justify-center gap-3">
                 <Mail className="h-6 w-6 text-primary" />
                 Générer votre notification de grève
               </CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-              {/* Champ email hiérarchie */}
-              <div>
-                <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
-                <div className="flex w-full max-w-sm">
-                  <Input
-                    id="hierarchie"
-                    name="hierarchieUser"
-                    value={formData.hierarchieUser}
-                    onChange={handleInputChange}
-                    placeholder="N+1"
-                    required
-                    className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0"
-                  />
-                  <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap">
-                    @iliad-free.fr
+              <div className="max-w-2xl mx-auto space-y-6">
+                {/* Champs nom et prénom */}
+                <div className="grid md:grid-cols-2 gap-4">
+                  <div>
+                    <Label htmlFor="prenom">Prénom *</Label>
+                    <Input
+                      id="prenom"
+                      name="prenom"
+                      value={formData.prenom}
+                      onChange={handleInputChange}
+                      placeholder="Votre prénom"
+                      required
+                      className="w-full"
+                    />
+                  </div>
+                  <div>
+                    <Label htmlFor="nom">Nom *</Label>
+                    <Input
+                      id="nom"
+                      name="nom"
+                      value={formData.nom}
+                      onChange={handleInputChange}
+                      placeholder="Votre nom"
+                      required
+                      className="w-full"
+                    />
                   </div>
                 </div>
-              </div>
 
-              {/* Champ emails en copie */}
-              <div>
-                <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
-                <div className="flex w-full max-w-sm">
-                  <Input
-                    id="ccEmails"
-                    name="ccEmailsUser"
-                    value={formData.ccEmailsUser}
-                    onChange={handleInputChange}
-                    placeholder="votre RH, collègue2"
-                    className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0"
-                  />
-                  <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap">
-                    @iliad-free.fr
+                {/* Champ email hiérarchie */}
+                <div>
+                  <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
+                  <div className="flex w-full">
+                    <Input
+                      id="hierarchie"
+                      name="hierarchieUser"
+                      value={formData.hierarchieUser}
+                      onChange={handleInputChange}
+                      placeholder="N+1"
+                      required
+                      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0"
+                    />
+                    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap">
+                      @iliad-free.fr
+                    </div>
                   </div>
                 </div>
-                <p className="text-xs text-muted-foreground mt-1">
-                  L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
-                </p>
-              </div>
 
-              {/* Champ message personnalisé */}
-              <div>
-                <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
-                <Textarea
-                  id="messagePersonnalise"
-                  name="messagePersonnalise"
-                  value={formData.messagePersonnalise}
-                  onChange={handleInputChange}
-                  placeholder="Ajoutez un message personnel si vous le souhaitez..."
-                  rows={3}
-                />
-              </div>
+                {/* Champ emails en copie */}
+                <div>
+                  <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
+                  <div className="flex w-full">
+                    <Input
+                      id="ccEmails"
+                      name="ccEmailsUser"
+                      value={formData.ccEmailsUser}
+                      onChange={handleInputChange}
+                      placeholder="votre RH, collègue2"
+                      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0"
+                    />
+                    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap">
+                      @iliad-free.fr
+                    </div>
+                  </div>
+                  <p className="text-xs text-muted-foreground mt-1 text-center">
+                    L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
+                  </p>
+                </div>
 
-              {/* Boutons */}
-              <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                <Button
-                  onClick={generateMailLink}
-                  disabled={!formData.prenom || !formData.nom || !formData.hierarchieUser}
-                  className="flex-1"
-                  size="lg"
-                >
-                  <Mail className="h-5 w-5 mr-2" />
-                  Ouvrir dans ma messagerie
-                </Button>
-                <Button variant="outline" size="lg" asChild>
-                  <a href="/tract-revendications.pdf" download="Tract_Revendications_FOCOM_18Sept.pdf">
-                    <FileText className="h-5 w-5 mr-2" />
-                    Télécharger le tract
-                  </a>
-                </Button>
-              </div>
+                {/* Champ message personnalisé */}
+                <div>
+                  <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
+                  <Textarea
+                    id="messagePersonnalise"
+                    name="messagePersonnalise"
+                    value={formData.messagePersonnalise}
+                    onChange={handleInputChange}
+                    placeholder="Ajoutez un message personnel si vous le souhaitez..."
+                    rows={3}
+                    className="w-full"
+                  />
+                </div>
 
-              {/* Note importante */}
-              <div className="bg-muted/50 p-4 rounded-lg">
-                <p className="text-sm text-muted-foreground">
-                  <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
-                  N'oubliez pas de joindre le tract des revendications en pièce jointe avant d'envoyer votre email.<br />
-                  Conformément à notre politique de confidentialité, aucune adresse email saisie via ce formulaire n’est collectée, stockée ou traitée sur nos serveurs.
-                </p>
+                {/* Boutons */}
+                <div className="flex flex-col sm:flex-row gap-4 pt-4">
+                  <Button
+                    onClick={generateMailLink}
+                    disabled={!formData.prenom || !formData.nom || !formData.hierarchieUser}
+                    className="flex-1"
+                    size="lg"
+                  >
+                    <Mail className="h-5 w-5 mr-2" />
+                    Ouvrir dans ma messagerie
+                  </Button>
+                  <Button variant="outline" size="lg" asChild>
+                    <a href="/tract-revendications.pdf" download="Tract_Revendications_FOCOM_18Sept.pdf">
+                      <FileText className="h-5 w-5 mr-2" />
+                      Télécharger le tract
+                    </a>
+                  </Button>
+                </div>
+
+                {/* Note importante */}
+                <div className="bg-muted/50 p-4 rounded-lg">
+                  <p className="text-sm text-muted-foreground text-center">
+                    <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
+                    N'oubliez pas de joindre le tract des revendications en pièce jointe avant d'envoyer votre email.<br />
+                    Conformément à notre politique de confidentialité, aucune adresse email saisie via ce formulaire n'est collectée, stockée ou traitée sur nos serveurs.
+                  </p>
+                </div>
               </div>
             </CardContent>
           </Card>
