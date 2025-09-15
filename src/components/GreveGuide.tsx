@@ -56,6 +56,13 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
             <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
               Vos droits et les démarches à suivre pour exercer votre droit de grève dans le secteur privé
             </p>
+            {/* Lien vers l'ancre */}
+            <Button asChild variant="outline" className="mt-4">
+              <a href="#generer-notification">
+                <Mail className="h-4 w-4 mr-2" />
+                Accéder au formulaire de notification
+              </a>
+            </Button>
           </div>
 
           {/* Droits du salarié */}
@@ -99,8 +106,8 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
             </Card>
           </div>
 
-          {/* Formulaire */}
-          <Card className="shadow-card">
+          {/* Formulaire avec ancre */}
+          <Card id="generer-notification" className="shadow-card">
             <CardHeader>
               <CardTitle className="flex items-center justify-center gap-3">
                 <Mail className="h-6 w-6 text-primary" />
@@ -127,7 +134,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                     </div>
                   </div>
                 </div>
-
                 {/* Champ emails en copie */}
                 <div>
                   <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
@@ -148,7 +154,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                     L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
                   </p>
                 </div>
-
                 {/* Champ message personnalisé */}
                 <div>
                   <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
@@ -162,7 +167,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                     className="w-full"
                   />
                 </div>
-
                 {/* Boutons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button
@@ -181,7 +185,6 @@ Cette notification de grève est effectuée conformément à l'article L. 2512-2
                     </a>
                   </Button>
                 </div>
-
                 {/* Note importante */}
                 <div className="bg-muted/50 p-4 rounded-lg">
                   <p className="text-sm text-muted-foreground text-center">
