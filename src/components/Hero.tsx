@@ -20,14 +20,15 @@ const Hero = () => {
         <li><strong>Techniciens</strong> : Prise en compte du temps de trajet entre le domicile et le premier site, ainsi qu'entre le dernier site et le domicile, comme temps de travail effectif.</li>
       </ul>
       <a
-        href="/Tract_Revendications_FOCOM_18Sept.pdf"
-        target="_blank"
-        rel="noopener noreferrer"
-        className="inline-flex items-center text-primary hover:underline"
-      >
-        <FileText className="h-4 w-4 mr-1" />
-        Télécharger le tract en PDF
-      </a>
+  href="https://greve.focomues-iliad.fr/Tract_Revendications_FOCOM_18Sept.pdf"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="inline-flex items-center text-primary hover:underline"
+>
+  <FileText className="h-4 w-4 mr-1" />
+  Télécharger le tract en PDF
+</a>
+
     </div>
   );
 
