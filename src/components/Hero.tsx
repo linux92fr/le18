@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { Calendar, Users, Megaphone } from "lucide-react";
+import { Calendar, Users, Megaphone, UserCheck } from "lucide-react";
 import focomLogo from "@/assets/logo_OP_FOCOM.png";
 import poingImage from "@/assets/ensemble_OP.png";
 
