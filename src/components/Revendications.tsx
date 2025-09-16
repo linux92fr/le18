@@ -1,10 +1,10 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { 
-  TrendingUp, 
-  Shield, 
-  HandHeart, 
-  Building2, 
+import {
+  TrendingUp,
+  Shield,
+  HandHeart,
+  Building2,
   Scale,
   Heart
 } from "lucide-react";
@@ -52,7 +52,6 @@ const Revendications = () => {
   return (
     <section className="py-20 bg-surface-gradient">
       <div className="container mx-auto px-4">
-        
         {/* Header */}
         <div className="text-center mb-16">
           <Badge variant="outline" className="mb-4">
@@ -62,16 +61,16 @@ const Revendications = () => {
             Pour une société plus juste
           </h2>
           <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-            Quel que soit l'interlocuteur, nous continuerons de refuser tout projet de budget 
+            Quel que soit l'interlocuteur, nous continuerons de refuser tout projet de budget
             injuste et inacceptable ne répondant en aucun cas aux urgences sociales et salariales.
           </p>
         </div>
 
         {/* Revendications Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {revendications.map((item, index) => (
-            <Card 
-              key={index} 
+            <Card
+              key={index}
               className="group hover:shadow-primary transition-all duration-300 hover:-translate-y-1 border-0 shadow-card bg-card/50 backdrop-blur-sm"
             >
               <CardContent className="p-6">
@@ -83,11 +82,11 @@ const Revendications = () => {
                     {item.category}
                   </Badge>
                 </div>
-                
+
                 <h3 className="text-xl font-semibold mb-3 group-hover:text-primary transition-colors">
                   {item.title}
                 </h3>
-                
+
                 <p className="text-muted-foreground leading-relaxed">
                   {item.description}
                 </p>
@@ -95,26 +94,6 @@ const Revendications = () => {
             </Card>
           ))}
         </div>
-
-        {/* Call to Action */}
-        <div className="text-center bg-card rounded-2xl p-8 shadow-card border">
-          <h3 className="text-2xl font-bold mb-4">
-            Nos revendications restent les mêmes
-          </h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
-            Face aux défis économiques et sociaux actuels, il est essentiel de maintenir 
-            nos exigences pour une société plus équitable et solidaire.
-          </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-action-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-glow transition-all duration-300 hover:scale-105">
-              Rejoindre la mobilisation
-            </button>
-            <button className="border border-primary text-primary px-8 py-3 rounded-lg font-semibold hover:bg-primary hover:text-primary-foreground transition-colors">
-              En savoir plus
-            </button>
-          </div>
-        </div>
-
       </div>
     </section>
   );
