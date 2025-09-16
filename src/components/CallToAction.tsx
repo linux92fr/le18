@@ -35,20 +35,7 @@ const CallToAction = () => {
     className="w-48 h-auto"
   />
 </div>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <Button size="lg" className="bg-action-gradient text-white hover:shadow-glow transition-all duration-300 hover:scale-105 font-semibold px-8">
-                <Users2 className="h-5 w-5 mr-2" />
-                Participer à la mobilisation
-                <ArrowRight className="h-5 w-5 ml-2" />
-              </Button>
-              
-              <Button variant="outline" size="lg" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-                Partager l'événement
-              </Button>
-            </div>
-          </div>
-          
+                                  
           {/* Supporting Info */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border">
