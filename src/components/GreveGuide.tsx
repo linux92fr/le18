@@ -4,7 +4,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Mail, FileText, Scale, UserCheck } from "lucide-react";
+import { Mail, FileText, Scale, UserCheck, Clock } from "lucide-react";
 import personnageImage from "@/assets/luffy-chibi.png";
 import { useState } from "react";
 
@@ -12,7 +12,8 @@ const GreveGuide = () => {
   const [formData, setFormData] = useState({
     hierarchieUser: "",
     ccEmailsUser: "",
-    messagePersonnalise: ""
+    messagePersonnalise: "",
+    heuresGreve: "" // Nouveau champ pour les heures de grève
   });
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -25,11 +26,17 @@ const GreveGuide = () => {
   const generateMailLink = () => {
     const sujet = `Préavis de grève`;
     const ccList = `cseuesiliad@iliad.fr${formData.ccEmailsUser ? ',' + formData.ccEmailsUser.split(',').map(email => email.trim() + '@iliad-free.fr').join(',') : ''}`;
+
+    // Intégration des heures de grève dans le corps du message
+    const heuresGreveText = formData.heuresGreve
+      ? `Je participerai à la grève aux horaires suivants : ${formData.heuresGreve}.`
+      : "Je participerai à la grève toute la journée.";
+
     const corpsMessage = `
-
 Bonjour,
-
 Je vous informe de mon intention de participer à la grève prévue le 18 septembre 2025, dans le cadre des revendications portées par l'organisation syndicale représentative FOCOM UES ILIAD.
+
+${heuresGreveText}
 
 Conformément aux dispositions légales en vigueur, je vous notifie par avance ma participation à ce mouvement de grève.
 ${formData.messagePersonnalise ? `\n${formData.messagePersonnalise}\n` : ''}
@@ -40,6 +47,7 @@ Cordialement.
 ---
 Cette déclaration de grève est effectuée conformément à l'article L. 2512-2 du Code du travail.
 `;
+
     const mailtoLink = `mailto:${formData.hierarchieUser}@iliad-free.fr?cc=${encodeURIComponent(ccList)}&subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corpsMessage)}`;
     window.location.href = mailtoLink;
   };
@@ -138,6 +146,7 @@ Cette déclaration de grève est effectuée conformément à l'article L. 2512-2
                     </div>
                   </div>
                 </div>
+
                 {/* Champ emails en copie */}
                 <div>
                   <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
@@ -158,6 +167,28 @@ Cette déclaration de grève est effectuée conformément à l'article L. 2512-2
                     L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
                   </p>
                 </div>
+
+                {/* Nouveau champ : Heures de grève */}
+                <div>
+                  <Label htmlFor="heuresGreve">
+                    <div className="flex items-center gap-2">
+                      <Clock className="h-4 w-4" />
+                      Heures de grève (optionnel)
+                    </div>
+                  </Label>
+                  <Input
+                    id="heuresGreve"
+                    name="heuresGreve"
+                    value={formData.heuresGreve}
+                    onChange={handleInputChange}
+                    placeholder="Ex: 9h-12h et 14h-17h"
+                    className="w-full"
+                  />
+                  <p className="text-xs text-muted-foreground mt-1">
+                    Précisez les créneaux horaires si vous ne faites pas grève toute la journée.
+                  </p>
+                </div>
+
                 {/* Champ message personnalisé */}
                 <div>
                   <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
@@ -171,6 +202,7 @@ Cette déclaration de grève est effectuée conformément à l'article L. 2512-2
                     className="w-full"
                   />
                 </div>
+
                 {/* Boutons */}
                 <div className="flex flex-col sm:flex-row gap-4 pt-4">
                   <Button
@@ -189,6 +221,7 @@ Cette déclaration de grève est effectuée conformément à l'article L. 2512-2
                     </a>
                   </Button>
                 </div>
+
                 {/* Note importante */}
                 <div className="bg-muted/50 p-4 rounded-lg">
                   <p className="text-sm text-muted-foreground text-center">
