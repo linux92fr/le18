@@ -96,11 +96,7 @@ const Hero = () => {
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">
-            <Button variant="hero" size="lg" className="group">
-              <Megaphone className="h-5 w-5 mr-2 group-hover:animate-bounce" />
-              J'Y SERAI !
-            </Button>
+          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8">            
             <Button
               variant="outline-hero"
               size="lg"
