@@ -6,6 +6,7 @@ import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
 import { Mail, FileText, Scale, UserCheck } from "lucide-react";
 import personnageImage from "@/assets/luffy-chibi.png";
+import { useState } from "react";
 
 const GreveGuide = () => {
   const [formData, setFormData] = useState({
