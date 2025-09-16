@@ -6,6 +6,7 @@ import poingImage from "@/assets/ensemble_OP.png";
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
+  const [pdfError, setPdfError] = useState(false);
 
   const revendicationsDetails = (
     <div className="space-y-4">
@@ -20,14 +21,36 @@ const Hero = () => {
         <li><strong>Techniciens</strong> : Prise en compte du temps de trajet entre le domicile et le premier site, ainsi qu'entre le dernier site et le domicile, comme temps de travail effectif.</li>
       </ul>
       <a
-  href={`${process.env.PUBLIC_URL}/Tract_Revendications_FOCOM_18Sept.pdf`}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="inline-flex items-center text-primary hover:underline"
->
-  <FileText className="h-4 w-4 mr-1" />
-  Télécharger le tract en PDF
-</a>
+        href={`${process.env.PUBLIC_URL}/Tract_Revendications_FOCOM_18Sept.pdf`}
+        download="Tract_Revendications_FOCOM_18Sept.pdf"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="inline-flex items-center text-primary hover:underline font-medium"
+        aria-label="Télécharger le tract en PDF"
+        onClick={(e) => {
+          fetch(`${process.env.PUBLIC_URL}/Tract_Revendications_FOCOM_18Sept.pdf`, {
+            method: 'HEAD'
+          })
+          .then(response => {
+            if (!response.ok) {
+              e.preventDefault();
+              setPdfError(true);
+            }
+          })
+          .catch(() => {
+            e.preventDefault();
+            setPdfError(true);
+          });
+        }}
+      >
+        <FileText className="h-4 w-4 mr-1" />
+        Télécharger le tract en PDF
+      </a>
+      {pdfError && (
+        <p className="text-sm text-destructive mt-2">
+          Le fichier PDF est introuvable. Veuillez réessayer plus tard.
+        </p>
+      )}
     </div>
   );
 
@@ -121,7 +144,10 @@ const Hero = () => {
             <div className="flex justify-end mt-4">
               <Button
                 variant="outline"
-                onClick={() => setShowModal(false)}
+                onClick={() => {
+                  setShowModal(false);
+                  setPdfError(false); // Réinitialise l'erreur PDF à la fermeture de la modale
+                }}
               >
                 Fermer
               </Button>
