@@ -7,24 +7,26 @@ import poingImage from "@/assets/ensemble_OP.png";
 const FlashBanner = () => {
   return (
     <div className="fixed top-0 left-0 right-0 z-50 h-16 bg-red-600 text-white overflow-hidden shadow-lg">
-      <div className="animate-marquee flex items-center h-full">
+      <div className="animate-marquee flex items-center h-full whitespace-nowrap">
         {[...Array(2)].map((_, i) => (
-          <div key={i} className="flex items-center mx-8">
-            <Megaphone className="h-6 w-6 mx-2" />
-            <span className="font-bold text-lg mx-2">🚨 FLASH INFO 🚨</span>
-            <span className="mx-2 text-lg font-medium">
+          <div key={i} className="flex items-center inline-flex">
+            <Megaphone className="h-6 w-6 mx-2 flex-shrink-0" />
+            <span className="font-bold text-lg mx-2 flex-shrink-0">🚨 FLASH INFO 🚨</span>
+            <span className="mx-2 text-lg font-medium flex-shrink-0">
               Vous pouvez déclarer votre participation à la grève même en fin de journée !
             </span>
-            <Megaphone className="h-6 w-6 mx-2" />
-            <span className="mx-4 px-4 py-1 bg-red-800 rounded-full font-bold">
+            <Megaphone className="h-6 w-6 mx-2 flex-shrink-0" />
+            <span className="mx-4 px-4 py-1 bg-red-800 rounded-full font-bold flex-shrink-0">
               AGISSEZ MAINTENANT
             </span>
+            <span className="mx-2 flex-shrink-0">|</span> {/* Séparateur */}
           </div>
         ))}
       </div>
     </div>
   );
 };
+
 
 
 
@@ -37,15 +39,17 @@ const Hero = () => {
   const style = document.createElement('style');
   style.innerHTML = `
     @keyframes marquee {
-      0% { transform: translateX(100%); }
+      0% { transform: translateX(0); }
       100% { transform: translateX(-100%); }
     }
     .animate-marquee {
-      animation: marquee 12s linear infinite;
+      animation: marquee 15s linear infinite;
       display: inline-flex;
-      white-space: nowrap;
-      align-items: center;
-      height: 100%;
+      width: max-content;
+      min-width: 100%;
+    }
+    .animate-marquee:hover {
+      animation-play-state: paused;
     }
   `;
   document.head.appendChild(style);
@@ -53,6 +57,7 @@ const Hero = () => {
     document.head.removeChild(style);
   };
 }, []);
+
 
   const revendicationsDetails = (
     <div className="space-y-4 text-center">
