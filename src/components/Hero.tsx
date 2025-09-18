@@ -6,14 +6,19 @@ import poingImage from "@/assets/ensemble_OP.png";
 
 const FlashBanner = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 h-10 bg-red-600 text-white overflow-hidden">
-      <div className="animate-marquee flex items-center h-full py-1">
-        {[...Array(3)].map((_, i) => (
-          <div key={i} className="flex items-center mx-4">
-            <Megaphone className="h-5 w-5 mx-1" />
-            <span className="font-bold mx-1">FLASH INFO :</span>
-            <span className="mx-1">Dernière chance pour déclarer votre participation à la grève !</span>
-            <Megaphone className="h-5 w-5 mx-1" />
+    <div className="fixed top-0 left-0 right-0 z-50 h-16 bg-red-600 text-white overflow-hidden shadow-lg">
+      <div className="animate-marquee flex items-center h-full">
+        {[...Array(2)].map((_, i) => (
+          <div key={i} className="flex items-center mx-8">
+            <Megaphone className="h-6 w-6 mx-2" />
+            <span className="font-bold text-lg mx-2">🚨 FLASH INFO 🚨</span>
+            <span className="mx-2 text-lg font-medium">
+              Vous pouvez déclarer votre participation à la grève même en fin de journée !
+            </span>
+            <Megaphone className="h-6 w-6 mx-2" />
+            <span className="mx-4 px-4 py-1 bg-red-800 rounded-full font-bold">
+              AGISSEZ MAINTENANT
+            </span>
           </div>
         ))}
       </div>
@@ -22,27 +27,32 @@ const FlashBanner = () => {
 };
 
 
+
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
   const [pdfError, setPdfError] = useState(false);
 
   // Ajout du CSS pour l'animation du bandeau
   useEffect(() => {
-    const style = document.createElement('style');
-    style.innerHTML = `
-      @keyframes marquee {
-        0% { transform: translateX(100%); }
-        100% { transform: translateX(-100%); }
-      }
-      .animate-marquee {
-        animation: marquee 20s linear infinite;
-      }
-    `;
-    document.head.appendChild(style);
-    return () => {
-      document.head.removeChild(style);
-    };
-  }, []);
+  const style = document.createElement('style');
+  style.innerHTML = `
+    @keyframes marquee {
+      0% { transform: translateX(100%); }
+      100% { transform: translateX(-100%); }
+    }
+    .animate-marquee {
+      animation: marquee 12s linear infinite;
+      display: inline-flex;
+      white-space: nowrap;
+      align-items: center;
+      height: 100%;
+    }
+  `;
+  document.head.appendChild(style);
+  return () => {
+    document.head.removeChild(style);
+  };
+}, []);
 
   const revendicationsDetails = (
     <div className="space-y-4 text-center">
