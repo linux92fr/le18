@@ -43,7 +43,7 @@ const Hero = () => {
       100% { transform: translateX(-100%); }
     }
     .animate-marquee {
-      animation: marquee 15s linear infinite;
+      animation: marquee 5s linear infinite;
       display: inline-flex;
       width: max-content;
       min-width: 100%;
