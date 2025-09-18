@@ -6,19 +6,21 @@ import poingImage from "@/assets/ensemble_OP.png";
 
 const FlashBanner = () => {
   return (
-    <div className="fixed top-0 left-0 right-0 z-50 overflow-hidden h-10 bg-red-600 text-white">
-      <div className="animate-marquee whitespace-nowrap flex items-center h-full">
-        <Megaphone className="h-5 w-5 mx-2" />
-        <span className="font-bold">FLASH INFO :</span>
-        <span className="mx-2">Vous pouvez déclarer votre participation à la grève même après votre journée de travail !</span>
-        <Megaphone className="h-5 w-5 mx-2" />
-        <span className="font-bold mx-4">FLASH INFO :</span>
-        <span className="mx-2">Dernière chance pour soutenir le mouvement - Déclarez-vous maintenant !</span>
-        <Megaphone className="h-5 w-5 mx-2" />
+    <div className="fixed top-0 left-0 right-0 z-50 h-10 bg-red-600 text-white overflow-hidden">
+      <div className="animate-marquee flex items-center h-full py-1">
+        {[...Array(3)].map((_, i) => (
+          <div key={i} className="flex items-center mx-4">
+            <Megaphone className="h-5 w-5 mx-1" />
+            <span className="font-bold mx-1">FLASH INFO :</span>
+            <span className="mx-1">Dernière chance pour déclarer votre participation à la grève !</span>
+            <Megaphone className="h-5 w-5 mx-1" />
+          </div>
+        ))}
       </div>
     </div>
   );
 };
+
 
 const Hero = () => {
   const [showModal, setShowModal] = useState(false);
