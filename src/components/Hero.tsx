@@ -74,13 +74,13 @@ const Hero = () => {
       <div className="flex justify-center">
         <a
           href={`${process.env.PUBLIC_URL}/Tract_Revendications_FOCOM_18Sept.pdf`}
-          download="Tract_Revendications_FOCOM_18Sept.pdf"
+          download="cp_intersyndical_24092025.pdf"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex items-center text-primary hover:underline font-medium"
           aria-label="Télécharger le tract en PDF"
           onClick={(e) => {
-            fetch(`${process.env.PUBLIC_URL}/Tract_Revendications_FOCOM_18Sept.pdf`, {
+            fetch(`${process.env.PUBLIC_URL}/cp_intersyndical_24092025.pdf`, {
               method: 'HEAD'
             })
             .then(response => {
