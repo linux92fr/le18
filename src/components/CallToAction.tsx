@@ -15,7 +15,7 @@ const CallToAction = () => {
             <div className="flex items-center justify-center gap-3 mb-6">
               <Calendar className="h-8 w-8 text-primary" />
               <span className="text-3xl md:text-4xl font-bold bg-text-gradient bg-clip-text text-transparent">
-                18 SEPTEMBRE
+                02 OCTOBRE 2025 SEPTEMBRE
               </span>
             </div>
 
