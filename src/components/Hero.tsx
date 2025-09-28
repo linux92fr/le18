@@ -134,7 +134,7 @@ const Hero = () => {
             {/* Date Badge */}
             <div className="inline-flex items-center gap-2 bg-white/20 backdrop-blur-sm rounded-full px-6 py-3 text-white font-semibold text-lg shadow-glow">
               <Calendar className="h-5 w-5" />
-              18 SEPTEMBRE
+              02 OCOTOBRE 2025
             </div>
 
             {/* Main Title avec image */}
