@@ -216,7 +216,7 @@ Cette déclaration de grève est effectuée conformément à l'article L. 2512-2
                     Ouvrir dans ma messagerie
                   </Button>
                   <Button variant="outline" size="lg" asChild>
-                    <a href="/Tract_Revendications_FOCOM_18Sept.pdf" download="Tract_Revendications_FOCOM_18Sept.pdf">
+                    <a href="/cp_intersyndical_24092025.pdf" download="cp_intersyndical_24092025.pdf">
                       <FileText className="h-5 w-5 mr-2" />
                       Télécharger le tract
                     </a>
