@@ -25,7 +25,7 @@ const CallToAction = () => {
 
             <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
               Rejoins-nous pour défendre nos droits et nos services publics.
-              Ensemble, nous pouvons faire la différence !
+              <br>Ensemble, nous pouvons faire la différence !</br>
             </p>
 
             <div className="flex justify-center items-center w-full h-full my-8">
