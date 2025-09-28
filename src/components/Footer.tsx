@@ -48,7 +48,7 @@ const Footer = () => {
                 Nos revendications
               </a>
               <a href="#mobilisation" className="block text-primary-foreground/90 hover:text-white transition-colors text-sm">
-                Mobilisation 18 septembre
+                Mobilisation 02 octobre
               </a>
             </div>
           </div>
