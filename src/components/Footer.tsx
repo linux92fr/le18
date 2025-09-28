@@ -78,7 +78,7 @@ const Footer = () => {
         {/* Mobilization Reminder */}
         <div className="mt-12 text-center">
           <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur-sm rounded-full px-6 py-3">
-            <span className="font-semibold">Rendez-vous le 18 septembre !</span>
+            <span className="font-semibold">Rendez-vous le 02 octobre !</span>
             <span className="text-primary-foreground/80">Tous concernés, tous mobilisés</span>
           </div>
         </div>
