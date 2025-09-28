@@ -34,7 +34,8 @@ const GreveGuide = () => {
 
     const corpsMessage = `
 Bonjour,
-Je vous informe de mon intention de participer à la grève prévue le 18 septembre 2025, dans le cadre des revendications portées par l'organisation syndicale représentative FOCOM UES ILIAD.
+
+Je vous informe de mon intention de participer à la grève prévue le 02 octobre 2025, dans le cadre des revendications portées par l'intersyndicale.
 
 ${heuresGreveText}
 
