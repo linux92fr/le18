@@ -1,243 +1,57 @@
-import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { Textarea } from "@/components/ui/textarea";
 import { Badge } from "@/components/ui/badge";
-import { Mail, FileText, Scale, UserCheck, Clock } from "lucide-react";
-import personnageImage from "@/assets/luffy-chibi.png";
-import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { CalendarDays, ClipboardList, ShieldCheck, Info, ExternalLink } from "lucide-react";
 
-const GreveGuide = () => {
-  const [formData, setFormData] = useState({
-    hierarchieUser: "",
-    ccEmailsUser: "",
-    messagePersonnalise: "",
-    heuresGreve: "" // Nouveau champ pour les heures de grève
-  });
+const GreveGuide = () => (
+  <section id="mobilisation" className="bg-white py-20">
+    <div className="container mx-auto px-5">
+      <div className="mx-auto max-w-4xl">
+        <div className="mb-12 text-center">
+          <Badge className="mb-4 bg-teal-50 px-4 py-2 text-teal-800 hover:bg-teal-50">JEUDI 5 NOVEMBRE 2026</Badge>
+          <h2 className="text-4xl font-black tracking-tight text-slate-950 sm:text-5xl">La mobilisation, concrètement</h2>
+          <p className="mt-4 text-lg text-slate-600">Les repères essentiels pour comprendre l'appel et préparer cette journée.</p>
+        </div>
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
-  };
+        <div className="grid gap-6 md:grid-cols-2">
+          <Card className="rounded-2xl border-slate-200 shadow-sm">
+            <CardHeader><CardTitle className="flex items-center gap-3 text-xl"><CalendarDays className="h-6 w-6 text-red-600" /> Une journée nationale</CardTitle></CardHeader>
+            <CardContent className="space-y-3 text-sm leading-relaxed text-slate-600">
+              <p>Une intersyndicale composée de la CFDT, de la CGT, de FO, de l'UNSA et de la FSU appelle les salariés du privé et du public, les jeunes et les retraités à se mobiliser.</p>
+              <p>Des manifestations sont annoncées dans de nombreuses villes. Les horaires et lieux de rassemblement sont à vérifier auprès des unions et organisations locales.</p>
+              <Button asChild variant="outline" className="mt-2 border-teal-700 text-teal-800 hover:bg-teal-50">
+                <a href="https://www.cgt.fr/actualites/france/mobilisation/5-novembre-retrouvez-les-mobilisations-pres-de-chez-vous" target="_blank" rel="noreferrer">Voir la carte des mobilisations <ExternalLink className="ml-2 h-4 w-4" /></a>
+              </Button>
+            </CardContent>
+          </Card>
 
-  const generateMailLink = () => {
-    const sujet = `Préavis de grève`;
-    const ccList = `cseuesiliad@iliad.fr${formData.ccEmailsUser ? ',' + formData.ccEmailsUser.split(',').map(email => email.trim() + '@iliad-free.fr').join(',') : ''}`;
-
-    // Intégration des heures de grève dans le corps du message
-    const heuresGreveText = formData.heuresGreve
-      ? `Je participerai à la grève aux horaires suivants : ${formData.heuresGreve}.`
-      : "Je participerai à la grève toute la journée.";
-
-    const corpsMessage = `
-Bonjour,
-
-Je vous informe de mon intention de participer à la grève prévue le 02 octobre 2025, dans le cadre des revendications portées par l'intersyndicale.
-
-${heuresGreveText}
-
-Conformément aux dispositions légales en vigueur, je vous notifie par avance ma participation à ce mouvement de grève.
-${formData.messagePersonnalise ? `\n${formData.messagePersonnalise}\n` : ''}
-
-Je vous prie de trouver ci-joint le tract détaillant les revendications du mouvement.
-
-Cordialement.
----
-Cette déclaration de grève est effectuée conformément à l'article L. 2512-2 du Code du travail.
-`;
-
-    const mailtoLink = `mailto:${formData.hierarchieUser}@iliad-free.fr?cc=${encodeURIComponent(ccList)}&subject=${encodeURIComponent(sujet)}&body=${encodeURIComponent(corpsMessage)}`;
-    window.location.href = mailtoLink;
-  };
-
-  return (
-    <section className="py-16 bg-surface-gradient" id="comment-faire-greve">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto space-y-8">
-          {/* Header */}
-          <div className="text-center space-y-4">
-            <Badge variant="secondary" className="px-6 py-2 text-lg font-semibold">
-              <Scale className="h-5 w-5 mr-2" />
-              Guide Pratique
-            </Badge>
-            <h2 className="text-4xl md:text-5xl font-bold text-foreground">
-              Comment faire grève chez <span className="bg-text-gradient bg-clip-text text-transparent">ILIAD</span> ?
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-3xl mx-auto">
-              Vos droits et les démarches à suivre pour exercer votre droit de grève dans le secteur privé
-            </p>
-            {/* Lien vers l'ancre */}
-            <Button asChild variant="outline" className="mt-4">
-              <a href="#generer-notification">
-                <Mail className="h-4 w-4 mr-2" />
-                Accéder au formulaire de notification
-              </a>
-            </Button>
-          </div>
-
-          {/* Droits du salarié */}
-          <div className="flex flex-col md:flex-row items-center gap-8">
-            <div className="flex-shrink-0 w-48 h-auto mb-4 md:mb-0">
-              <img
-                src={personnageImage}
-                alt="Personnage surprise"
-                className="w-full h-auto object-contain"
-              />
-            </div>
-            <Card className="shadow-card flex-1">
-              <CardHeader>
-                <CardTitle className="flex items-center gap-3">
-                  <UserCheck className="h-6 w-6 text-primary" />
-                  Vos droits en tant que salarié du secteur privé
-                </CardTitle>
-              </CardHeader>
-              <CardContent className="space-y-4">
-                <div className="grid md:grid-cols-2 gap-6">
-                  <div>
-                    <h4 className="font-semibold text-lg mb-3 text-primary">✓ Vous avez le droit de :</h4>
-                    <ul className="space-y-2 text-sm">
-                      <li>• Participer à la grève sans autorisation préalable</li>
-                      <li>• Ne pas être sanctionné pour fait de grève</li>
-                      <li>• Retrouver votre poste à l'issue de la grève</li>
-                      <li>• Bénéficier de la protection contre le licenciement</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <h4 className="font-semibold text-lg mb-3 text-destructive">⚠️ À savoir :</h4>
-                    <ul className="space-y-2 text-sm">
-                      <li>• La grève suspend le contrat de travail</li>
-                      <li>• Pas de rémunération pendant la grève</li>
-                      <li>• Préavis recommandé mais non obligatoire</li>
-                      <li>• Respecter les modalités d'exercice du droit de grève</li>
-                    </ul>
-                  </div>
-                </div>
-              </CardContent>
-            </Card>
-          </div>
-
-          {/* Formulaire avec ancre */}
-          <Card id="generer-notification" className="shadow-card">
-            <CardHeader>
-              <CardTitle className="flex items-center justify-center gap-3">
-                <Mail className="h-6 w-6 text-primary" />
-                Générer votre notification de grève
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              <div className="max-w-2xl mx-auto space-y-6">
-                {/* Champ email hiérarchie */}
-                <div>
-                  <Label htmlFor="hierarchie">Email de votre hiérarchie directe *</Label>
-                  <div className="flex w-full">
-                    <Input
-                      id="hierarchie"
-                      name="hierarchieUser"
-                      value={formData.hierarchieUser}
-                      onChange={handleInputChange}
-                      placeholder="N+1"
-                      required
-                      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0"
-                    />
-                    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap">
-                      @iliad-free.fr
-                    </div>
-                  </div>
-                </div>
-
-                {/* Champ emails en copie */}
-                <div>
-                  <Label htmlFor="ccEmails">Emails en copie (optionnel, séparés par des virgules)</Label>
-                  <div className="flex w-full">
-                    <Input
-                      id="ccEmails"
-                      name="ccEmailsUser"
-                      value={formData.ccEmailsUser}
-                      onChange={handleInputChange}
-                      placeholder="votre RH, collègue2"
-                      className="rounded-r-none focus-visible:ring-offset-0 focus-visible:ring-2 flex-1 min-w-0"
-                    />
-                    <div className="flex items-center px-3 border border-input border-l-0 bg-background rounded-r-md text-sm text-muted-foreground whitespace-nowrap">
-                      @iliad-free.fr
-                    </div>
-                  </div>
-                  <p className="text-xs text-muted-foreground mt-1 text-center">
-                    L'adresse cseuesiliad@iliad.fr sera automatiquement ajoutée en copie.
-                  </p>
-                </div>
-
-                {/* Nouveau champ : Heures de grève */}
-                <div>
-                  <Label htmlFor="heuresGreve">
-                    <div className="flex items-center gap-2">
-                      <Clock className="h-4 w-4" />
-                      Heures de grève (optionnel)
-                    </div>
-                  </Label>
-                  <Input
-                    id="heuresGreve"
-                    name="heuresGreve"
-                    value={formData.heuresGreve}
-                    onChange={handleInputChange}
-                    placeholder="Ex: 9h-12h et 14h-17h"
-                    className="w-full"
-                  />
-                  <p className="text-xs text-muted-foreground mt-1">
-                    Précisez les créneaux horaires si vous ne faites pas grève toute la journée.
-                  </p>
-                </div>
-
-                {/* Champ message personnalisé */}
-                <div>
-                  <Label htmlFor="messagePersonnalise">Message personnalisé (optionnel)</Label>
-                  <Textarea
-                    id="messagePersonnalise"
-                    name="messagePersonnalise"
-                    value={formData.messagePersonnalise}
-                    onChange={handleInputChange}
-                    placeholder="Ajoutez un message personnel si vous le souhaitez..."
-                    rows={3}
-                    className="w-full"
-                  />
-                </div>
-
-                {/* Boutons */}
-                <div className="flex flex-col sm:flex-row gap-4 pt-4">
-                  <Button
-                    onClick={generateMailLink}
-                    disabled={!formData.hierarchieUser}
-                    className="flex-1"
-                    size="lg"
-                  >
-                    <Mail className="h-5 w-5 mr-2" />
-                    Ouvrir dans ma messagerie
-                  </Button>
-                  <Button variant="outline" size="lg" asChild>
-                    <a href="/cp_intersyndical_24092025.pdf" download="cp_intersyndical_24092025.pdf">
-                      <FileText className="h-5 w-5 mr-2" />
-                      Télécharger le tract
-                    </a>
-                  </Button>
-                </div>
-
-                {/* Note importante */}
-                <div className="bg-muted/50 p-4 rounded-lg">
-                  <p className="text-sm text-muted-foreground text-center">
-                    <strong>Note importante :</strong> Ce formulaire génère un email pré-formaté dans votre client mail par défaut.
-                    N'oubliez pas de joindre le tract des revendications en pièce jointe avant d'envoyer votre email.<br />
-                    Conformément à notre politique de confidentialité, aucune adresse email saisie via ce formulaire n'est collectée, stockée ou traitée sur nos serveurs.
-                  </p>
-                </div>
-              </div>
+          <Card className="rounded-2xl border-slate-200 shadow-sm">
+            <CardHeader><CardTitle className="flex items-center gap-3 text-xl"><ShieldCheck className="h-6 w-6 text-teal-700" /> Exercer son droit de grève</CardTitle></CardHeader>
+            <CardContent className="space-y-3 text-sm leading-relaxed text-slate-600">
+              <p>Dans le secteur privé, la grève est une cessation collective et concertée du travail pour appuyer des revendications professionnelles. Un salarié peut rejoindre un mouvement déjà engagé.</p>
+              <p>En règle générale, un salarié du privé n'a pas à prévenir individuellement son employeur à l'avance, sauf situation particulière (notamment certains services publics ou règles spécifiques applicables).</p>
+              <p>La participation entraîne en principe une retenue de salaire proportionnelle à la durée de l'arrêt de travail. Une sanction motivée par le seul fait de grève est interdite.</p>
             </CardContent>
           </Card>
         </div>
+
+        <Card className="mt-6 rounded-2xl border-amber-200 bg-amber-50/70 shadow-none">
+          <CardHeader><CardTitle className="flex items-center gap-3 text-lg text-amber-950"><Info className="h-5 w-5" /> Avant de participer</CardTitle></CardHeader>
+          <CardContent className="text-sm leading-relaxed text-amber-950/80">
+            Vérifiez les consignes applicables à votre activité, notamment si vous exercez une mission relevant d'un service soumis à des règles particulières. Les conditions d'exercice peuvent différer selon le secteur et le statut. Cette page fournit des informations générales et ne remplace pas un conseil juridique adapté à votre situation.
+          </CardContent>
+        </Card>
+
+        <Card className="mt-6 rounded-2xl border-slate-200 shadow-sm">
+          <CardHeader><CardTitle className="flex items-center gap-3 text-xl"><ClipboardList className="h-6 w-6 text-red-600" /> Informez-vous et faites connaître vos revendications</CardTitle></CardHeader>
+          <CardContent className="space-y-3 text-sm leading-relaxed text-slate-600">
+            <p>Échangez avec vos collègues, rapprochez-vous de vos représentants syndicaux et consultez les informations locales actualisées. La participation reste une décision individuelle, exercée dans le cadre collectif de l'appel.</p>
+            <p>FO COM UES ILIAD porte également les sujets propres aux salariés du groupe : pouvoir d'achat, réorganisations, emplois, reconnaissance des compétences et conditions de travail.</p>
+          </CardContent>
+        </Card>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default GreveGuide;
