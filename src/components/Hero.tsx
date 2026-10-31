@@ -3,6 +3,8 @@ import { Button } from "@/components/ui/button";
 import { CalendarDays, ArrowDown, Megaphone, Wallet, BriefcaseBusiness, HeartHandshake } from "lucide-react";
 import focomLogo from "@/assets/logo_OP_FOCOM.png";
 
+const posterPath = "/Grève_générale_FO_ensemble_le5novembre2026.png";
+
 const Hero = () => {
   const [showDetails, setShowDetails] = useState(false);
 
@@ -61,7 +63,12 @@ const Hero = () => {
               </div>
 
               <div className="relative mx-auto w-full max-w-md">
-                <div className="rounded-[2rem] border border-white/15 bg-white/[0.07] p-6 shadow-2xl backdrop-blur">
+                <div className="overflow-hidden rounded-[2rem] border border-white/15 bg-white/[0.07] p-3 shadow-2xl backdrop-blur">
+                  <a href={posterPath} target="_blank" rel="noreferrer" aria-label="Voir le tract officiel du 5 novembre 2026">
+                    <img src={posterPath} alt="Tract FO COM UES ILIAD : grève générale le 5 novembre 2026" className="w-full rounded-2xl" />
+                  </a>
+                  <a href={posterPath} download className="mt-3 block rounded-xl bg-red-600 px-4 py-3 text-center text-sm font-extrabold text-white transition hover:bg-red-500">Télécharger le tract officiel</a>
+                  <div className="hidden">
                   <p className="text-xs font-bold uppercase tracking-[0.22em] text-teal-200">Une date · Une voix collective</p>
                   <div className="my-7 border-y border-white/15 py-7 text-center">
                     <p className="text-sm font-bold uppercase tracking-[0.35em] text-white/55">Jeudi</p>
@@ -73,6 +80,7 @@ const Hero = () => {
                     <div className="flex items-center gap-3"><Wallet className="h-5 w-5 text-red-300" /><span className="text-sm font-semibold">Du pouvoir d'achat pour vivre dignement</span></div>
                     <div className="flex items-center gap-3"><BriefcaseBusiness className="h-5 w-5 text-teal-300" /><span className="text-sm font-semibold">Des emplois et des métiers reconnus</span></div>
                     <div className="flex items-center gap-3"><HeartHandshake className="h-5 w-5 text-red-300" /><span className="text-sm font-semibold">Du respect et de meilleures conditions de travail</span></div>
+                  </div>
                   </div>
                 </div>
                 <div className="absolute -bottom-5 -left-5 -z-10 h-28 w-28 rounded-full bg-red-600/40 blur-3xl" />
