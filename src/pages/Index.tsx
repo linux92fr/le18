@@ -1,5 +1,6 @@
 import Hero from "@/components/Hero";
 import Revendications from "@/components/Revendications";
+import MobilisationMap from "@/components/MobilisationMap";
 import GreveGuide from "@/components/GreveGuide";
 import CallToAction from "@/components/CallToAction";
 import Footer from "@/components/Footer";
@@ -10,6 +11,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Hero />
       <Revendications />
+      <MobilisationMap />
       <GreveGuide />
       <CallToAction />
       <Footer />
