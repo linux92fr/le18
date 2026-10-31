@@ -73,7 +73,7 @@ const PolitiqueConfidentialite = () => {
               <h2 className="text-2xl font-semibold mb-4 text-primary">Mise à jour</h2>
               <div className="bg-card rounded-lg p-6">
                 <p>
-                  Cette politique de confidentialité a été mise à jour le : <strong>28 septembre 2025</strong>.
+                  Cette politique de confidentialité a été mise à jour le : <strong>30 octobre 2026</strong>.
                 </p>
                 <p>
                   En cas de modification de nos pratiques (ex. : ajout d'un nouvel outil), nous mettrons à jour cette page pour refléter ces changements.
