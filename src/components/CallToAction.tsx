@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, CalendarDays, Megaphone } from "lucide-react";
-const posterPath = "/Grève_générale_FO_ensemble_le5novembre2026.png";
+const posterPath = "/Grève_généraleFO_ensemble_le5novembre2026.png";
 
 const CallToAction = () => (
   <section className="relative overflow-hidden bg-[#101827] py-20 text-white">
