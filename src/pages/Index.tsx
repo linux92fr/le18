@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import MobilisationVideo from "@/components/MobilisationVideo";
 import Revendications from "@/components/Revendications";
 import MobilisationMap from "@/components/MobilisationMap";
 import GreveGuide from "@/components/GreveGuide";
@@ -10,6 +11,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-background">
       <Hero />
+      <MobilisationVideo />
       <Revendications />
       <MobilisationMap />
       <GreveGuide />
