@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CalendarDays, ArrowDown, Megaphone, Wallet, BriefcaseBusiness, HeartHandshake } from "lucide-react";
+import { CalendarDays, ArrowDown, Megaphone, Wallet, BriefcaseBusiness, HeartHandshake, Mail } from "lucide-react";
 import focomLogo from "@/assets/logo_OP_FOCOM.png";
 
 const posterPath = "/Grève_généraleFO_ensemble_le5novembre2026.png";
@@ -47,13 +47,20 @@ const Hero = () => {
                 <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
                   Salariés du public et du privé : le 5 novembre, faisons front ensemble. Pour les salaires, les services publics, l'emploi et des conditions de travail dignes. Même combat, mêmes droits, même avenir.
                 </p>
-                <div className="mt-9 flex flex-col gap-3 sm:flex-row">
+                <div className="mt-9 flex flex-col gap-3">
+                  <Button size="lg" className="h-auto min-h-16 w-full justify-center whitespace-normal rounded-xl bg-teal-500 px-6 py-4 text-base font-black text-slate-950 shadow-lg shadow-teal-500/20 transition hover:-translate-y-0.5 hover:bg-teal-400 sm:w-fit sm:text-lg" onClick={() => document.getElementById("generer-notification")?.scrollIntoView({ behavior: "smooth", block: "center" })}>
+                    <Mail className="mr-3 h-5 w-5 shrink-0" />
+                    Préparer mon message de participation à la grève
+                    <ArrowDown className="ml-3 h-5 w-5 shrink-0" />
+                  </Button>
+                  <div className="flex flex-col gap-3 sm:flex-row">
                   <Button size="lg" className="h-14 bg-red-600 px-7 text-base font-extrabold hover:bg-red-500" onClick={() => document.getElementById("mobilisation")?.scrollIntoView({ behavior: "smooth" })}>
                     Comprendre la mobilisation <ArrowDown className="ml-2 h-5 w-5" />
                   </Button>
                   <Button size="lg" variant="outline" className="h-14 border-white/30 bg-white/5 px-7 text-base text-white hover:bg-white/10 hover:text-white" onClick={() => setShowDetails(!showDetails)}>
                     Pourquoi se mobiliser ?
                   </Button>
+                  </div>
                 </div>
                 {showDetails && (
                   <div className="mt-5 max-w-2xl rounded-2xl border border-teal-300/25 bg-teal-300/10 p-5 text-sm leading-relaxed text-white/85">
