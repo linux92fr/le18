@@ -47,7 +47,7 @@ const GreveGuide = () => {
   };
 
   return (
-    <section id="mobilisation" className="bg-white py-20">
+    <section id="mobilisation" className="scroll-mt-28 bg-white py-20">
       <div className="container mx-auto px-5">
         <div className="mx-auto max-w-4xl">
           <div className="mb-12 text-center">
