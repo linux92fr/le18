@@ -1,76 +1,27 @@
 import { Button } from "@/components/ui/button";
-import { Calendar, ArrowRight, Users2 } from "lucide-react";
-import poingImage from "@/assets/ensemble_OP.png";
+import { ArrowUpRight, CalendarDays, Megaphone } from "lucide-react";
+const posterPath = "/Grève_générale_FO_ensemble_le5novembre2026.png";
 
-const CallToAction = () => {
-  return (
-    <section className="py-20 bg-primary/5 relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_70%,hsl(0_72%_51%/0.1),transparent_70%)]" />
-
-      <div className="relative z-10 container mx-auto px-4 text-center">
-        <div className="max-w-4xl mx-auto">
-          {/* Main CTA */}
-          <div className="bg-card rounded-3xl p-12 shadow-card border mb-12 backdrop-blur-sm bg-card/80">
-            <div className="flex items-center justify-center gap-3 mb-6">
-              <Calendar className="h-8 w-8 text-primary" />
-              <span className="text-3xl md:text-4xl font-bold bg-text-gradient bg-clip-text text-transparent">
-                02 OCTOBRE 2025
-              </span>
-            </div>
-
-            <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-              <span className="text-foreground">J'Y SERAI !</span>
-            </h2>
-
-            <p className="text-xl text-muted-foreground mb-8 max-w-2xl mx-auto leading-relaxed">
-              Rejoins-nous pour défendre nos droits<br />
-              et nos services publics.<br />
-              Ensemble, nous pouvons faire la différence !
-            </p>
-
-            <div className="flex justify-center items-center w-full h-full my-8">
-              <img
-                src={poingImage}
-                alt="Poing levé"
-                className="w-48 h-auto"
-              />
-            </div>
-
-            {/* Supporting Info */}
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-              <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border">
-                <div className="text-primary font-bold text-2xl mb-2">
-                  Tous concernés
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  Chaque travailleur est impacté par ces politiques d'austérité
-                </p>
-              </div>
-
-              <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border">
-                <div className="text-primary font-bold text-2xl mb-2">
-                  Tous mobilisés
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  L'union fait la force face aux injustices sociales
-                </p>
-              </div>
-
-              <div className="bg-card/50 backdrop-blur-sm rounded-xl p-6 border">
-                <div className="text-primary font-bold text-2xl mb-2">
-                  Tous ensemble
-                </div>
-                <p className="text-muted-foreground text-sm">
-                  Pour construire une société plus juste et équitable
-                </p>
-              </div>
-            </div>
-          </div>
+const CallToAction = () => (
+  <section className="relative overflow-hidden bg-[#101827] py-20 text-white">
+    <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_50%,rgba(20,184,166,0.16),transparent_48%),radial-gradient(ellipse_at_90%_20%,rgba(220,38,38,0.25),transparent_45%)]" />
+    <div className="container relative z-10 mx-auto px-5">
+      <div className="mx-auto grid max-w-6xl items-center gap-10 rounded-[2rem] border border-white/10 bg-white/[0.06] p-7 backdrop-blur sm:p-12 lg:grid-cols-[1fr_260px]">
+        <div>
+          <div className="mb-5 inline-flex items-center gap-2 text-sm font-bold uppercase tracking-widest text-teal-200"><CalendarDays className="h-4 w-4" /> Jeudi 5 novembre 2026</div>
+          <h2 className="max-w-3xl text-4xl font-black leading-tight sm:text-5xl">Salariés du public et du privé : même combat, mêmes droits, même avenir.</h2>
+          <p className="mt-5 max-w-2xl text-lg leading-relaxed text-white/70">Augmentez les salaires, pas l'âge de la retraite. Travailler plus pour gagner moins : ça suffit ! Défendons nos services publics et nos droits.</p>
+          <Button asChild size="lg" className="mt-8 h-14 bg-red-600 px-7 font-extrabold hover:bg-red-500">
+            <a href="https://greve.focomues-iliad.fr" target="_blank" rel="noreferrer">Toutes les infos sur la grève <ArrowUpRight className="ml-2 h-5 w-5" /></a>
+          </Button>
         </div>
+        <a href={posterPath} download className="mx-auto block w-full max-w-[260px] overflow-hidden rounded-2xl border border-white/15 shadow-2xl transition hover:-translate-y-1">
+          <img src={posterPath} alt="Tract officiel FO COM UES ILIAD – Grève générale du 5 novembre 2026" className="w-full" />
+          <span className="block bg-red-600 px-4 py-3 text-center text-sm font-extrabold text-white">Télécharger le tract</span>
+        </a>
       </div>
-    </section>
-  );
-};
+    </div>
+  </section>
+);
 
 export default CallToAction;
