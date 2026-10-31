@@ -5,7 +5,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
-import { CalendarDays, ClipboardList, ShieldCheck, Info, ExternalLink, Mail, Clock, Copy, FileText } from "lucide-react";
+import { CalendarDays, ClipboardList, ShieldCheck, Info, Mail, Clock, Copy } from "lucide-react";
 
 const GreveGuide = () => {
   const [hierarchieUser, setHierarchieUser] = useState("");
@@ -61,9 +61,9 @@ const GreveGuide = () => {
               <CardHeader><CardTitle className="flex items-center gap-3 text-xl"><CalendarDays className="h-6 w-6 text-red-600" /> Une journée nationale</CardTitle></CardHeader>
               <CardContent className="space-y-3 text-sm leading-relaxed text-slate-600">
                 <p>Une intersyndicale composée de la CFDT, de la CGT, de FO, de l'UNSA et de la FSU appelle les salariés du privé et du public, les jeunes et les retraités à se mobiliser.</p>
-                <p>Des manifestations sont annoncées dans de nombreuses villes. Les horaires et lieux de rassemblement sont à vérifier auprès des unions et organisations locales.</p>
+                <p>Des manifestations sont annoncées dans de nombreuses villes. Retrouvez les lieux et horaires confirmés sur notre carte des rassemblements.</p>
                 <Button asChild variant="outline" className="mt-2 border-teal-700 text-teal-800 hover:bg-teal-50">
-                  <a href="https://www.cgt.fr/actualites/france/mobilisation/5-novembre-retrouvez-les-mobilisations-pres-de-chez-vous" target="_blank" rel="noreferrer">Voir la carte des mobilisations <ExternalLink className="ml-2 h-4 w-4" /></a>
+                  <a href="#carte-mobilisations">Consulter la carte des mobilisations</a>
                 </Button>
               </CardContent>
             </Card>
