@@ -38,7 +38,7 @@ const questions = [
 ];
 
 const GreveRights = () => (
-  <section id="droits-greve" className="scroll-mt-8 bg-slate-50 py-20">
+  <section id="droits-greve" className="scroll-mt-28 bg-slate-50 py-20">
     <div className="container mx-auto px-5">
       <div className="mx-auto max-w-4xl">
         <div className="mb-10 text-center">
