@@ -1,6 +1,6 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Wallet, Users, Factory, HeartPulse, Scale, ShieldCheck, Wrench, Clock3 } from "lucide-react";
+import { Wallet, Users, Factory, HeartPulse, Scale, ShieldCheck, Wrench, Clock3, ShoppingCart } from "lucide-react";
 
 const revendications = [
   { icon: Wallet, title: "Des salaires qui suivent le coût de la vie", description: "Ouvrir des négociations salariales dans les entreprises et les branches, revaloriser les rémunérations, le SMIC, les pensions et les minima sociaux.", category: "Pouvoir d'achat" },
@@ -32,6 +32,26 @@ const Revendications = () => (
             </CardContent>
           </Card>
         ))}
+      </div>
+      <div className="mt-10 overflow-hidden rounded-3xl border border-red-200 bg-[#101827] p-7 text-white shadow-xl sm:p-10">
+        <div className="grid items-center gap-6 md:grid-cols-[auto_1fr]">
+          <div className="flex h-16 w-16 items-center justify-center rounded-2xl bg-red-600/20 text-red-300">
+            <ShoppingCart className="h-8 w-8" />
+          </div>
+          <div>
+            <Badge className="mb-3 border-red-300/30 bg-red-500/15 px-3 py-1.5 text-red-100 hover:bg-red-500/15">LE 5 NOVEMBRE 2026 · UN GESTE CITOYEN</Badge>
+            <h3 className="text-2xl font-black sm:text-3xl">Et si nous faisions aussi grève de la consommation ?</h3>
+            <p className="mt-3 max-w-4xl text-base leading-relaxed text-white/80">
+              Le temps d'une journée, reportons les achats et les dépenses non indispensables : pas de shopping, pas d'achats de confort, pas de consommation superflue. L'objectif de cet appel citoyen est de rendre visible le poids collectif des consommateurs et de faire entendre que l'activité économique repose aussi sur les choix de la population.
+            </p>
+            <p className="mt-3 text-sm font-semibold text-teal-200">
+              Consommer est un choix. Ne pas consommer peut aussi être un message. Demos Kratos : le pouvoir au peuple.
+            </p>
+            <p className="mt-2 text-xs leading-relaxed text-white/55">
+              Chacun agit librement, selon ses moyens et ses nécessités : les achats essentiels, les soins et les besoins des personnes à charge restent prioritaires.
+            </p>
+          </div>
+        </div>
       </div>
       <div className="mt-10 rounded-2xl border-l-4 border-teal-500 bg-white p-6 shadow-sm">
         <p className="font-bold text-slate-900">FO COM UES ILIAD rappelle :</p>
