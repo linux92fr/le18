@@ -113,7 +113,7 @@ const MobilisationMap = () => {
   }, [filteredEvents]);
 
   return (
-    <section id="carte-mobilisations" className="bg-slate-50 py-20">
+    <section id="carte-mobilisations" className="scroll-mt-28 bg-slate-50 py-20">
       <div className="container mx-auto px-5">
         <div className="mx-auto max-w-6xl">
           <div className="mb-9 text-center">
