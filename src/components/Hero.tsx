@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-import { CalendarDays, ArrowDown, Megaphone, Wallet, BriefcaseBusiness, HeartHandshake, Mail } from "lucide-react";
+import { CalendarDays, ArrowDown, Megaphone, Wallet, BriefcaseBusiness, HeartHandshake, Mail, ShoppingCart } from "lucide-react";
 import focomLogo from "@/assets/logo_OP_FOCOM.png";
 
 const posterPath = "/Grève_généraleFO_ensemble_le5novembre2026.png";
@@ -47,6 +47,22 @@ const Hero = () => {
                 <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
                   Salariés du public et du privé : le 5 novembre, faisons front ensemble. Pour les salaires, les services publics, l'emploi et des conditions de travail dignes. Même combat, mêmes droits, même avenir.
                 </p>
+                <div className="mt-7 rounded-2xl border border-amber-300/40 bg-amber-300/10 p-5 shadow-lg shadow-amber-950/20 sm:p-6">
+                  <div className="flex items-start gap-4">
+                    <div className="rounded-xl bg-amber-300 p-3 text-slate-950">
+                      <ShoppingCart className="h-6 w-6" />
+                    </div>
+                    <div>
+                      <p className="text-xs font-black uppercase tracking-[0.2em] text-amber-200">Un geste citoyen · Le 5 novembre</p>
+                      <h2 className="mt-1 text-xl font-black leading-tight text-white sm:text-2xl">Faisons aussi grève de la consommation !</h2>
+                      <p className="mt-2 text-sm leading-relaxed text-white/80 sm:text-base">
+                        Une journée sans achats non essentiels : reportons le shopping et les dépenses superflues. Montrons le poids de nos choix et rappelons que le pouvoir appartient aussi au peuple.
+                      </p>
+                      <p className="mt-3 text-sm font-black tracking-wide text-amber-200">DEMOS KRATOS · LE POUVOIR AU PEUPLE</p>
+                      <p className="mt-2 text-xs leading-relaxed text-white/55">Les besoins essentiels, les soins et les achats indispensables restent prioritaires.</p>
+                    </div>
+                  </div>
+                </div>
                 <div className="mt-9 flex flex-col gap-3">
                   <Button size="lg" className="h-auto min-h-16 w-full justify-center whitespace-normal rounded-xl bg-teal-500 px-6 py-4 text-base font-black text-slate-950 shadow-lg shadow-teal-500/20 transition hover:-translate-y-0.5 hover:bg-teal-400 sm:w-fit sm:text-lg" onClick={() => document.getElementById("generer-notification")?.scrollIntoView({ behavior: "smooth", block: "center" })}>
                     <Mail className="mr-3 h-5 w-5 shrink-0" />
