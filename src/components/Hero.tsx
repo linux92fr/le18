@@ -17,7 +17,7 @@ const Hero = () => {
         </div>
       </div>
 
-      <section className="relative flex min-h-screen items-center overflow-hidden bg-[#111827] pb-16 pt-28 text-white">
+      <section id="accueil" className="relative flex min-h-screen items-center overflow-hidden bg-[#111827] pb-16 pt-28 text-white">
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_75%_20%,rgba(220,38,38,0.35),transparent_48%),radial-gradient(ellipse_at_10%_90%,rgba(20,184,166,0.18),transparent_45%)]" />
         <div className="absolute -right-24 top-32 h-80 w-80 rounded-full border border-white/10" />
         <div className="absolute -right-10 top-48 h-52 w-52 rounded-full border border-white/10" />
