@@ -3,7 +3,7 @@ import { ArrowUpRight, CalendarDays, Megaphone } from "lucide-react";
 const posterPath = "/greve_FO_05112026.png";
 
 const CallToAction = () => (
-  <section className="relative overflow-hidden bg-[#101827] py-20 text-white">
+  <section id="appel-action" className="relative scroll-mt-28 overflow-hidden bg-[#101827] py-20 text-white">
     <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_15%_50%,rgba(20,184,166,0.16),transparent_48%),radial-gradient(ellipse_at_90%_20%,rgba(220,38,38,0.25),transparent_45%)]" />
     <div className="container relative z-10 mx-auto px-5">
       <div className="mx-auto grid max-w-6xl items-center gap-10 rounded-[2rem] border border-white/10 bg-white/[0.06] p-7 backdrop-blur sm:p-12 lg:grid-cols-[1fr_260px]">
