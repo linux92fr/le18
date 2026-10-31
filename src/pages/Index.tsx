@@ -1,4 +1,5 @@
 import Hero from "@/components/Hero";
+import SectionNavigation from "@/components/SectionNavigation";
 import MobilisationVideo from "@/components/MobilisationVideo";
 import Revendications from "@/components/Revendications";
 import MobilisationMap from "@/components/MobilisationMap";
@@ -10,8 +11,9 @@ import ScrollToTop from "@/components/ScrollToTop";
 
 const Index = () => {
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen scroll-smooth bg-background">
       <Hero />
+      <SectionNavigation />
       <MobilisationVideo />
       <Revendications />
       <MobilisationMap />
