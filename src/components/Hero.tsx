@@ -37,13 +37,13 @@ const Hero = () => {
                   <CalendarDays className="h-4 w-4" /> JEUDI 5 NOVEMBRE 2026
                 </div>
                 <h1 className="max-w-4xl text-5xl font-black leading-[0.98] tracking-tight sm:text-6xl lg:text-7xl">
-                  NOS SALAIRES.
-                  <span className="block text-red-400">NOS EMPLOIS.</span>
-                  <span className="block">NOS CONDITIONS</span>
-                  <span className="block text-teal-300">DE TRAVAIL.</span>
+                  GRÈVE
+                  <span className="block text-red-400">GÉNÉRALE</span>
+                  <span className="block">LE 05/11/2026</span>
+                  <span className="block text-teal-300">ENSEMBLE !</span>
                 </h1>
                 <p className="mt-8 max-w-2xl text-lg leading-relaxed text-white/75 sm:text-xl">
-                  Le 5 novembre, faisons entendre la voix des salariés. Face à la vie chère, aux rémunérations qui stagnent et aux réorganisations imposées, nos droits et notre avenir professionnel méritent des réponses concrètes.
+                  Salariés du public et du privé : le 5 novembre, faisons front ensemble. Pour les salaires, les services publics, l'emploi et des conditions de travail dignes. Même combat, mêmes droits, même avenir.
                 </p>
                 <div className="mt-9 flex flex-col gap-3 sm:flex-row">
                   <Button size="lg" className="h-14 bg-red-600 px-7 text-base font-extrabold hover:bg-red-500" onClick={() => document.getElementById("mobilisation")?.scrollIntoView({ behavior: "smooth" })}>
@@ -55,7 +55,7 @@ const Hero = () => {
                 </div>
                 {showDetails && (
                   <div className="mt-5 max-w-2xl rounded-2xl border border-teal-300/25 bg-teal-300/10 p-5 text-sm leading-relaxed text-white/85">
-                    L'appel intersyndical CFDT, CGT, FO, UNSA et FSU porte sur les salaires, l'emploi, les services publics et l'industrie. FO COM UES ILIAD met aussi en lumière les réalités vécues dans les entreprises du groupe : pouvoir d'achat, transformations successives, reconnaissance des métiers et conditions de travail.
+                    L'appel à la grève générale du 5 novembre concerne les salariés du public et du privé. FO COM UES ILIAD met aussi en lumière les réalités vécues dans le groupe : pouvoir d'achat, transformations successives, reconnaissance des métiers et conditions de travail.
                   </div>
                 )}
               </div>
