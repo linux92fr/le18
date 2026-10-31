@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { CalendarDays, ArrowDown, Megaphone, Wallet, BriefcaseBusiness, HeartHandshake } from "lucide-react";
 import focomLogo from "@/assets/logo_OP_FOCOM.png";
 
-const posterPath = "/Grève_générale_FO_ensemble_le5novembre2026.png";
+const posterPath = "/Grève_généraleFO_ensemble_le5novembre2026.png";
 
 const Hero = () => {
   const [showDetails, setShowDetails] = useState(false);
