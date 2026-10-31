@@ -14,7 +14,7 @@ const revendications = [
 ];
 
 const Revendications = () => (
-  <section id="revendications" className="bg-[#f5f7fa] py-20">
+  <section id="revendications" className="scroll-mt-28 bg-[#f5f7fa] py-20">
     <div className="container mx-auto px-5">
       <div className="mx-auto mb-14 max-w-3xl text-center">
         <Badge className="mb-4 border-red-200 bg-red-50 px-4 py-2 text-red-700 hover:bg-red-50">CE QUE NOUS DÉFENDONS</Badge>

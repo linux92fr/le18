@@ -2,7 +2,7 @@ import { Play } from "lucide-react";
 
 const MobilisationVideo = () => {
   return (
-    <section id="video-mobilisation" className="bg-white py-16 sm:py-20">
+    <section id="video-mobilisation" className="scroll-mt-28 bg-white py-16 sm:py-20">
       <div className="container mx-auto max-w-6xl px-5">
         <div className="mx-auto mb-8 max-w-3xl text-center">
           <span className="inline-flex items-center gap-2 rounded-full bg-red-50 px-4 py-2 text-sm font-bold text-red-700">
