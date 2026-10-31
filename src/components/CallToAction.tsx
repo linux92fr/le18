@@ -1,6 +1,6 @@
 import { Button } from "@/components/ui/button";
 import { ArrowUpRight, CalendarDays, Megaphone } from "lucide-react";
-import poingImage from "@/assets/ensemble_OP.png";
+const posterPath = "/Grève_générale_FO_ensemble_le5novembre2026.png";
 
 const CallToAction = () => (
   <section className="relative overflow-hidden bg-[#101827] py-20 text-white">
@@ -15,10 +15,10 @@ const CallToAction = () => (
             <a href="https://greve.focomues-iliad.fr" target="_blank" rel="noreferrer">Toutes les infos sur la grève <ArrowUpRight className="ml-2 h-5 w-5" /></a>
           </Button>
         </div>
-        <div className="mx-auto w-52">
-          <img src={poingImage} alt="Symbole de mobilisation collective" className="w-full drop-shadow-2xl" />
-          <p className="mt-3 text-center text-xs font-bold uppercase tracking-[0.2em] text-white/45"><Megaphone className="mr-1 inline h-4 w-4" /> Ensemble, faisons-nous entendre</p>
-        </div>
+        <a href={posterPath} download className="mx-auto block w-full max-w-[260px] overflow-hidden rounded-2xl border border-white/15 shadow-2xl transition hover:-translate-y-1">
+          <img src={posterPath} alt="Tract officiel FO COM UES ILIAD – Grève générale du 5 novembre 2026" className="w-full" />
+          <span className="block bg-red-600 px-4 py-3 text-center text-sm font-extrabold text-white">Télécharger le tract</span>
+        </a>
       </div>
     </div>
   </section>
