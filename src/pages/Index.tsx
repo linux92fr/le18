@@ -12,8 +12,8 @@ import ScrollToTop from "@/components/ScrollToTop";
 const Index = () => {
   return (
     <div className="min-h-screen scroll-smooth bg-background">
-      <Hero />
       <SectionNavigation />
+      <Hero />
       <MobilisationVideo />
       <Revendications />
       <MobilisationMap />
