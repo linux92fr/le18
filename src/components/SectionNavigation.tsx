@@ -1,4 +1,4 @@
-import { Anchor, BookOpen, CalendarDays, MapPin, Megaphone, Play, Scale } from "lucide-react";
+import { Anchor, BookOpen, CalendarDays, Mail, MapPin, Megaphone, Play, Scale } from "lucide-react";
 
 const links = [
   { href: "#accueil", label: "Accueil", icon: Anchor },
@@ -6,6 +6,7 @@ const links = [
   { href: "#video-mobilisation", label: "Vidéo", icon: Play },
   { href: "#carte-mobilisations", label: "Rassemblements", icon: MapPin },
   { href: "#mobilisation", label: "Participer", icon: CalendarDays },
+  { href: "#generer-notification", label: "Préparer mon message", icon: Mail },
   { href: "#droits-greve", label: "Mes droits", icon: Scale },
   { href: "#appel-action", label: "Agir", icon: BookOpen },
 ];
