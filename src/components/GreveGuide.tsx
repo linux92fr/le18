@@ -92,12 +92,12 @@ const GreveGuide = () => {
             </CardHeader>
             <CardContent className="mx-auto max-w-2xl space-y-5">
               <div className="space-y-2">
-                <Label htmlFor="hierarchie">Adresse e-mail de votre hiérarchie *</Label>
+                <Label htmlFor="hierarchie">Adresse e-mail de votre RH *</Label>
                 <Input id="hierarchie" value={hierarchieUser} onChange={(e) => setHierarchieUser(e.target.value)} placeholder="prenom.nom ou adresse complète" />
                 <p className="text-xs text-slate-500">Vous pouvez saisir un identifiant Iliad (le domaine @iliad-free.fr sera ajouté) ou une adresse complète.</p>
               </div>
               <div className="space-y-2">
-                <Label htmlFor="ccEmails">Autres destinataires en copie (facultatif)</Label>
+                <Label htmlFor="ccEmails">Autres destinataires en copie (Votre N+1))</Label>
                 <Input id="ccEmails" value={ccEmailsUser} onChange={(e) => setCcEmailsUser(e.target.value)} placeholder="Identifiants ou adresses, séparés par des virgules" />
                 <p className="text-xs text-slate-500">cseuesiliad@iliad.fr sera automatiquement ajouté en copie.</p>
               </div>
