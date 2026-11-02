@@ -85,7 +85,7 @@ const GreveGuide = () => {
             </CardContent>
           </Card>
 
-          <Card id="generer-notification" className="mt-6 scroll-mt-8 rounded-2xl border-red-100 shadow-sm">
+          <Card id="generer-notification" className="mt-6 scroll-mt-32 rounded-2xl border-red-100 shadow-sm">
             <CardHeader>
               <CardTitle className="flex items-center justify-center gap-3 text-xl"><Mail className="h-6 w-6 text-red-600" /> Préparer mon message de participation à la grève</CardTitle>
               <p className="text-center text-sm text-slate-600">Un message prérempli à adresser à votre hiérarchie, si vous choisissez de l'en informer.</p>
