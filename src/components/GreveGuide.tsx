@@ -19,7 +19,7 @@ const GreveGuide = () => {
     : hierarchieUser.trim() ? `${hierarchieUser.trim()}@iliad-free.fr` : "";
 
   const ccList = [
-    "cseuesiliad@iliad.fr",
+    "ML-ILD-cseuesiliad@iliad-free.fr",
     ...ccEmailsUser.split(",").map((value) => value.trim()).filter(Boolean).map((value) =>
       value.includes("@") ? value : `${value}@iliad-free.fr`
     ),
@@ -99,7 +99,7 @@ const GreveGuide = () => {
               <div className="space-y-2">
                 <Label htmlFor="ccEmails">Autres destinataires en copie (Votre N+1))</Label>
                 <Input id="ccEmails" value={ccEmailsUser} onChange={(e) => setCcEmailsUser(e.target.value)} placeholder="Identifiants ou adresses, séparés par des virgules" />
-                <p className="text-xs text-slate-500">cseuesiliad@iliad.fr sera automatiquement ajouté en copie.</p>
+                <p className="text-xs text-slate-500">ML-ILD-cseuesiliad@iliad-free.fr sera automatiquement ajouté en copie.</p>
               </div>
               <div className="space-y-2">
                 <Label htmlFor="heuresGreve" className="flex items-center gap-2"><Clock className="h-4 w-4" /> Horaires de grève (facultatif)</Label>
