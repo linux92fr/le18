@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from "react";
 import { Link } from "react-router-dom";
-import { ArrowLeft, Download, RefreshCw, ShieldCheck, MessageSquareText } from "lucide-react";
+import { ArrowLeft, Download, FileDown, RefreshCw, ShieldCheck, MessageSquareText } from "lucide-react";
+import { Bar, BarChart, CartesianGrid, Cell, ResponsiveContainer, Tooltip, XAxis, YAxis } from "recharts";
 import { toast } from "sonner";
 import { supabase } from "@/lib/supabase";
 
@@ -69,6 +70,8 @@ const AdminQuestionnaire = () => {
   const priorities = useMemo(() => countBy(rows.flatMap((r) => r.priorities || [])), [rows]);
   const maxCount = (items: [string, number][]) => Math.max(1, ...items.map((x) => x[1]));
 
+  const exportPdf = () => { window.print(); };
+
   const exportCsv = () => {
     const header = ["Date", "Entité", "Frein à la mobilisation", "Priorités", "Action souhaitée", "Changement attendu de FO", "Commentaire"];
     const lines = rows.map((r) => [new Date(r.created_at).toLocaleString("fr-FR"), r.entity, r.barrier, (r.priorities || []).join(" | "), r.preferred_action, r.expected_change, r.comment]);
@@ -77,28 +80,39 @@ const AdminQuestionnaire = () => {
     const a = document.createElement("a"); a.href = url; a.download = "bilan-questionnaire-mobilisation-iliad.csv"; a.click(); URL.revokeObjectURL(url);
   };
 
-  const ChartList = ({ title, items }: { title: string; items: [string, number][] }) => (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
+  const chartColors = ["#b91c1c", "#0f766e", "#2563eb", "#9333ea", "#d97706", "#475569", "#db2777", "#0891b2"];
+  const ChartPanel = ({ title, items }: { title: string; items: [string, number][] }) => (
+    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm print:break-inside-avoid">
       <h2 className="mb-4 text-lg font-black text-slate-900">{title}</h2>
-      {items.length === 0 ? <p className="text-sm text-slate-500">Aucune réponse pour le moment.</p> : <div className="space-y-4">
-        {items.map(([label, count]) => <div key={label}>
-          <div className="mb-1 flex items-start justify-between gap-3 text-sm"><span className="text-slate-700">{label}</span><strong className="shrink-0 tabular-nums text-slate-950">{count}</strong></div>
-          <div className="h-2.5 overflow-hidden rounded-full bg-slate-100"><div className="h-full rounded-full bg-red-600" style={{ width: (count / maxCount(items) * 100) + "%" }} /></div>
-        </div>)}
-      </div>}
+      {items.length === 0 ? <p className="text-sm text-slate-500">Aucune réponse pour le moment.</p> : <>
+        <div className="h-64 w-full">
+          <ResponsiveContainer width="100%" height="100%">
+            <BarChart data={items.map(([label, count]) => ({ label, count }))} layout="vertical" margin={{ top: 4, right: 18, left: 8, bottom: 4 }}>
+              <CartesianGrid strokeDasharray="3 3" horizontal={false} />
+              <XAxis type="number" allowDecimals={false} />
+              <YAxis type="category" dataKey="label" width={150} tick={{ fontSize: 11 }} />
+              <Tooltip formatter={(value) => [value, "Réponses"]} />
+              <Bar dataKey="count" radius={[0, 5, 5, 0]}>{items.map((_, index) => <Cell key={index} fill={chartColors[index % chartColors.length]} />)}</Bar>
+            </BarChart>
+          </ResponsiveContainer>
+        </div>
+        <div className="mt-3 space-y-2 border-t pt-3">
+          {items.map(([label, count]) => <div key={label} className="flex justify-between gap-3 text-xs"><span className="text-slate-600">{label}</span><strong className="tabular-nums text-slate-900">{count}</strong></div>)}
+        </div>
+      </>}
     </section>
   );
 
   if (checking) return <main className="grid min-h-screen place-items-center text-slate-500">Vérification des autorisations…</main>;
   if (!allowed) return <main className="grid min-h-screen place-items-center bg-slate-50 px-5"><div className="max-w-md rounded-2xl border bg-white p-8 text-center shadow-sm"><ShieldCheck className="mx-auto h-10 w-10 text-red-600"/><h1 className="mt-4 text-xl font-black">Accès réservé</h1><p className="mt-2 text-sm text-slate-600">Cette page est réservée aux administrateurs autorisés du site. Connectez-vous avec un compte administrateur.</p><Link to="/admin" className="mt-5 inline-flex rounded-lg bg-red-600 px-4 py-2.5 font-bold text-white">Accéder à l’administration</Link></div></main>;
 
-  return <main className="min-h-screen bg-slate-50">
-    <header className="border-b bg-white"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4">
+  return <main className="min-h-screen bg-slate-50 print:bg-white">
+    <header className="border-b bg-white print:hidden"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4">
       <Link to="/admin" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-red-700"><ArrowLeft className="h-4 w-4"/> Administration</Link>
       <div className="flex items-center gap-2 text-sm font-black text-slate-900"><MessageSquareText className="h-5 w-5 text-red-600"/> Bilan du questionnaire</div>
-      <div className="flex gap-2"><button onClick={load} disabled={loading} className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold disabled:opacity-50"><RefreshCw className={"h-4 w-4 "+(loading?"animate-spin":"")}/> Actualiser</button><button onClick={exportCsv} disabled={!rows.length} className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-3 py-2 text-sm font-bold text-white disabled:opacity-50"><Download className="h-4 w-4"/> Export CSV</button></div>
+      <div className="flex flex-wrap gap-2"><button onClick={load} disabled={loading} className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold disabled:opacity-50"><RefreshCw className={"h-4 w-4 "+(loading?"animate-spin":"")}/> Actualiser</button><button onClick={exportCsv} disabled={!rows.length} className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-3 py-2 text-sm font-bold text-white disabled:opacity-50"><Download className="h-4 w-4"/> Export CSV</button><button onClick={exportPdf} disabled={!rows.length} className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-sm font-bold text-white disabled:opacity-50 print:hidden"><FileDown className="h-4 w-4"/> Export PDF</button></div>
     </div></header>
-    <div className="mx-auto max-w-7xl space-y-6 px-5 py-8">
+    <div className="mx-auto max-w-7xl space-y-6 px-5 py-8 print:max-w-none print:px-0 print:py-2">
       <div><h1 className="text-3xl font-black text-slate-950">Écoute des salariés ILIAD</h1><p className="mt-1 text-slate-600">Résultats des réponses au questionnaire post-mobilisation du 5 novembre 2026.</p></div>
       {errorMessage && <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{errorMessage}</div>}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
@@ -107,14 +121,17 @@ const AdminQuestionnaire = () => {
         <div className="rounded-2xl border bg-white p-5"><p className="text-sm text-slate-500">Priorités exprimées</p><p className="mt-2 text-4xl font-black tabular-nums text-slate-950">{rows.reduce((n,r)=>n+(r.priorities?.length||0),0)}</p></div>
         <div className="rounded-2xl border bg-white p-5"><p className="text-sm text-slate-500">Commentaires libres</p><p className="mt-2 text-4xl font-black tabular-nums text-slate-950">{rows.filter(r=>r.comment?.trim()||r.expected_change?.trim()).length}</p></div>
       </div>
-      <div className="grid gap-5 lg:grid-cols-2">
-        <ChartList title="Réponses par entité" items={entities}/>
-        <ChartList title="Freins à la mobilisation" items={barriers}/>
-        <ChartList title="Priorités chez ILIAD" items={priorities}/>
-        <ChartList title="Actions souhaitées" items={actions}/>
-      </div>
+      <section className="space-y-3">
+        <div><h2 className="text-2xl font-black text-slate-950">Analyse des réponses</h2><p className="text-sm text-slate-500">Les graphiques comptabilisent les sélections. Une personne pouvant choisir plusieurs priorités, le total des choix peut dépasser le nombre de répondants.</p></div>
+        <div className="grid gap-5 lg:grid-cols-2">
+          <ChartPanel title="Réponses par entité" items={entities}/>
+          <ChartPanel title="Freins à la mobilisation" items={barriers}/>
+          <ChartPanel title="Priorités chez ILIAD" items={priorities}/>
+          <ChartPanel title="Actions souhaitées" items={actions}/>
+        </div>
+      </section>
       <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <div className="mb-4"><h2 className="text-lg font-black text-slate-900">Retours écrits</h2><p className="text-sm text-slate-500">Les réponses sont affichées aux seuls administrateurs autorisés.</p></div>
+        <div className="mb-4"><h2 className="text-lg font-black text-slate-900">Retours écrits détaillés</h2><p className="text-sm text-slate-500">Les réponses sont affichées aux seuls administrateurs autorisés.</p></div>
         {rows.filter(r=>r.expected_change?.trim()||r.comment?.trim()).length===0 ? <p className="text-sm text-slate-500">Aucun commentaire libre pour le moment.</p> : <div className="space-y-3">
           {rows.filter(r=>r.expected_change?.trim()||r.comment?.trim()).map(r=><article key={r.id} className="rounded-xl border border-slate-100 bg-slate-50 p-4">
             <p className="text-xs text-slate-500">{new Date(r.created_at).toLocaleString("fr-FR")} · {r.entity || "Entité non précisée"}</p>
