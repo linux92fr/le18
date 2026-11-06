@@ -131,7 +131,7 @@ const AdminQuestionnaire = () => {
         </div>
       </section>
       <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
-        <div className="mb-4"><h2 className="text-lg font-black text-slate-900">Retours écrits</h2><p className="text-sm text-slate-500">Les réponses sont affichées aux seuls administrateurs autorisés.</p></div>
+        <div className="mb-4"><h2 className="text-lg font-black text-slate-900">Retours écrits détaillés</h2><p className="text-sm text-slate-500">Les réponses sont affichées aux seuls administrateurs autorisés.</p></div>
         {rows.filter(r=>r.expected_change?.trim()||r.comment?.trim()).length===0 ? <p className="text-sm text-slate-500">Aucun commentaire libre pour le moment.</p> : <div className="space-y-3">
           {rows.filter(r=>r.expected_change?.trim()||r.comment?.trim()).map(r=><article key={r.id} className="rounded-xl border border-slate-100 bg-slate-50 p-4">
             <p className="text-xs text-slate-500">{new Date(r.created_at).toLocaleString("fr-FR")} · {r.entity || "Entité non précisée"}</p>
