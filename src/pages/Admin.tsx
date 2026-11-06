@@ -137,7 +137,7 @@ const Admin = () => {
         <div className="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
           <Link to="/" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-red-700"><ArrowLeft className="h-4 w-4" /> Retour au site</Link>
           <div className="flex items-center gap-2 text-sm font-bold text-slate-900"><MapPin className="h-5 w-5 text-red-600" /> Administration des rassemblements</div>
-          {session ? <button onClick={logout} className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-red-700"><LogOut className="h-4 w-4" /> Déconnexion</button> : <span />}
+          {session ? <div className="flex items-center gap-4"><Link to="/admin/questionnaire" className="text-sm font-semibold text-red-700 hover:underline">Bilan questionnaire</Link><button onClick={logout} className="inline-flex items-center gap-2 text-sm text-slate-600 hover:text-red-700"><LogOut className="h-4 w-4" /> Déconnexion</button> : <span />}
         </div>
       </header>
 
