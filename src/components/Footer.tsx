@@ -1,38 +1,6 @@
 import { Separator } from "@/components/ui/separator";
 import focomLogo from "@/assets/logo_OP_FOCOM.png";
-
 const Footer = () => (
-  <footer className="bg-[#0b1220] py-12 text-white">
-    <div className="container mx-auto px-5">
-      <div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]">
-        <div>
-          <div className="mb-5 flex items-center gap-3">
-            <img src={focomLogo} alt="Logo FO COM" className="h-12 w-12 rounded-lg bg-white object-contain p-1" />
-            <div><p className="text-xl font-black">FO COM</p><p className="text-xs font-bold tracking-[0.2em] text-white/55">UES ILIAD</p></div>
-          </div>
-          <p className="max-w-sm text-sm leading-relaxed text-white/60">Informer · Défendre · Agir ensemble. Au quotidien, aux côtés des salariés du groupe ILIAD.</p>
-        </div>
-        <div>
-          <h3 className="mb-4 font-bold">Sur cette page</h3>
-          <div className="space-y-3 text-sm text-white/65">
-            <a href="#revendications" className="block hover:text-white">Nos revendications</a>
-            <a href="#mobilisation" className="block hover:text-white">La mobilisation du 5 novembre</a>
-          </div>
-        </div>
-        <div>
-          <h3 className="mb-4 font-bold">FO COM UES ILIAD</h3>
-          <a href="https://focomues-iliad.fr" className="text-sm text-teal-300 hover:text-teal-200">focomues-iliad.fr</a>
-          <p className="mt-3 text-sm text-white/55">contact@focomues-iliad.fr</p>
-        </div>
-      </div>
-      <Separator className="my-8 bg-white/10" />
-      <div className="flex flex-col gap-4 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between">
-        <p>© 2026 FO COM UES ILIAD. Tous droits réservés.</p>
-        <div className="flex gap-5"><a href="/mentions-legales" className="hover:text-white">Mentions légales</a><a href="/politique-confidentialite" className="hover:text-white">Confidentialité</a></div>
-      </div>
-      <p className="mt-8 text-center text-sm font-bold text-white/60">JEUDI 5 NOVEMBRE 2026 · SALAIRES · EMPLOI · SERVICES PUBLICS · INDUSTRIE</p>
-    </div>
-  </footer>
+ <footer className="bg-[#0b1220] py-12 text-white"><div className="container mx-auto px-5"><div className="grid gap-10 md:grid-cols-[1.4fr_1fr_1fr]"><div><div className="mb-5 flex items-center gap-3"><img src={focomLogo} alt="Logo FO COM" className="h-12 w-12 rounded-lg bg-white object-contain p-1"/><div><p className="text-xl font-black">FO COM</p><p className="text-xs font-bold tracking-[0.2em] text-white/55">UES ILIAD</p></div></div><p className="max-w-sm text-sm leading-relaxed text-white/60">Informer · Défendre · Agir ensemble. Au quotidien, aux côtés des salariés du groupe ILIAD.</p></div><div><h3 className="mb-4 font-bold">Sur cette page</h3><div className="space-y-3 text-sm text-white/65"><a href="#bilan" className="block hover:text-white">Le bilan</a><a href="#revendications" className="block hover:text-white">Nos priorités</a><a href="#questionnaire" className="block hover:text-white">Votre parole</a><a href="#temps-trajet" className="block hover:text-white">Temps de trajet</a></div></div><div><h3 className="mb-4 font-bold">FO COM UES ILIAD</h3><a href="https://focomues-iliad.fr" className="text-sm text-teal-300 hover:text-teal-200">focomues-iliad.fr</a><p className="mt-3 text-sm text-white/55">contact@focomues-iliad.fr</p></div></div><Separator className="my-8 bg-white/10"/><div className="flex flex-col gap-4 text-xs text-white/45 sm:flex-row sm:items-center sm:justify-between"><p>© 2026 FO COM UES ILIAD. Tous droits réservés.</p><div className="flex gap-5"><a href="/mentions-legales" className="hover:text-white">Mentions légales</a><a href="/politique-confidentialite" className="hover:text-white">Confidentialité</a></div></div></div></footer>
 );
-
 export default Footer;
