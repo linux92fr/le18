@@ -1,9 +1,8 @@
-import { Anchor, ClipboardList, Clock3, Megaphone, Play, Scale } from "lucide-react";
+import { Anchor, ClipboardList, Clock3, Megaphone, Scale } from "lucide-react";
 
 const links = [
   { href: "#accueil", label: "Accueil", icon: Anchor },
   { href: "#bilan", label: "Le bilan", icon: Scale },
-  { href: "#video-mobilisation", label: "En images", icon: Play },
   { href: "#revendications", label: "Nos priorités", icon: Megaphone },
   { href: "#questionnaire", label: "Votre parole", icon: ClipboardList },
   { href: "#temps-trajet", label: "Temps de trajet", icon: Clock3 },

@@ -1,7 +1,7 @@
 import Hero from "@/components/Hero";
 import SectionNavigation from "@/components/SectionNavigation";
 import BilanMobilisation from "@/components/BilanMobilisation";
-import MobilisationVideo from "@/components/MobilisationVideo";
+import BilanPopup from "@/components/BilanPopup";
 import Revendications from "@/components/Revendications";
 import Questionnaire from "@/components/Questionnaire";
 import TempsTrajet from "@/components/TempsTrajet";
@@ -14,12 +14,12 @@ const Index = () => (
     <SectionNavigation />
     <Hero />
     <BilanMobilisation />
-    <MobilisationVideo />
     <Revendications />
     <Questionnaire />
     <TempsTrajet />
     <CallToAction />
     <Footer />
+    <BilanPopup />
     <ScrollToTop />
   </div>
 );
