@@ -29,3 +29,14 @@ create policy "Allow anonymous questionnaire submissions"
 
 revoke all on public.mobilisation_feedback from anon, authenticated;
 grant insert on public.mobilisation_feedback to anon, authenticated;
+
+
+-- Seuls les administrateurs explicitement inscrits peuvent consulter les réponses.
+drop policy if exists "Mobilisation admins can read feedback" on public.mobilisation_feedback;
+create policy "Mobilisation admins can read feedback"
+  on public.mobilisation_feedback
+  for select
+  to authenticated
+  using ((select public.is_mobilisation_admin()));
+
+grant select on public.mobilisation_feedback to authenticated;
