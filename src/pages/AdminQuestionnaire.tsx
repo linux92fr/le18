@@ -107,12 +107,15 @@ const AdminQuestionnaire = () => {
         <div className="rounded-2xl border bg-white p-5"><p className="text-sm text-slate-500">Priorités exprimées</p><p className="mt-2 text-4xl font-black tabular-nums text-slate-950">{rows.reduce((n,r)=>n+(r.priorities?.length||0),0)}</p></div>
         <div className="rounded-2xl border bg-white p-5"><p className="text-sm text-slate-500">Commentaires libres</p><p className="mt-2 text-4xl font-black tabular-nums text-slate-950">{rows.filter(r=>r.comment?.trim()||r.expected_change?.trim()).length}</p></div>
       </div>
-      <div className="grid gap-5 lg:grid-cols-2">
-        <ChartList title="Réponses par entité" items={entities}/>
-        <ChartList title="Freins à la mobilisation" items={barriers}/>
-        <ChartList title="Priorités chez ILIAD" items={priorities}/>
-        <ChartList title="Actions souhaitées" items={actions}/>
-      </div>
+      <section className="space-y-3">
+        <div><h2 className="text-2xl font-black text-slate-950">Analyse des réponses</h2><p className="text-sm text-slate-500">Les graphiques comptabilisent les sélections. Une personne pouvant choisir plusieurs priorités, le total des choix peut dépasser le nombre de répondants.</p></div>
+        <div className="grid gap-5 lg:grid-cols-2">
+          <ChartPanel title="Réponses par entité" items={entities}/>
+          <ChartPanel title="Freins à la mobilisation" items={barriers}/>
+          <ChartPanel title="Priorités chez ILIAD" items={priorities}/>
+          <ChartPanel title="Actions souhaitées" items={actions}/>
+        </div>
+      </section>
       <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm">
         <div className="mb-4"><h2 className="text-lg font-black text-slate-900">Retours écrits</h2><p className="text-sm text-slate-500">Les réponses sont affichées aux seuls administrateurs autorisés.</p></div>
         {rows.filter(r=>r.expected_change?.trim()||r.comment?.trim()).length===0 ? <p className="text-sm text-slate-500">Aucun commentaire libre pour le moment.</p> : <div className="space-y-3">
