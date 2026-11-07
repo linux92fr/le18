@@ -150,6 +150,7 @@ const Admin = () => {
               <label className="block text-sm font-medium text-slate-700">Adresse e-mail<input required type="email" autoComplete="username" value={email} onChange={(e) => setEmail(e.target.value)} className="mt-1 h-11 w-full rounded-lg border border-slate-300 px-3 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100" /></label>
               <label className="block text-sm font-medium text-slate-700">Mot de passe<input required type="password" autoComplete="current-password" value={password} onChange={(e) => setPassword(e.target.value)} className="mt-1 h-11 w-full rounded-lg border border-slate-300 px-3 outline-none focus:border-red-500 focus:ring-2 focus:ring-red-100" /></label>
               <button disabled={!isSupabaseConfigured} className="h-11 w-full rounded-lg bg-red-600 font-bold text-white hover:bg-red-700 disabled:cursor-not-allowed disabled:opacity-50">Se connecter</button>
+              <div className="text-right"><Link to="/admin/reinitialiser" className="text-sm font-semibold text-red-700 hover:underline">Mot de passe oublié ?</Link></div>
             </form>
           </div>
         ) : (
