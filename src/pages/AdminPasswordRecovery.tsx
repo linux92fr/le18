@@ -28,7 +28,7 @@ const AdminPasswordRecovery = () => {
         errorCode === "otp_expired"
           ? "Ce lien ou code de récupération a expiré ou a déjà été utilisé. Demandez un nouvel e-mail."
           : errorDescription
-            ? decodeURIComponent(errorDescription.replace(/\+/g, " "))
+            ? errorDescription
             : "La vérification du lien de récupération a échoué. Demandez un nouvel e-mail."
       );
       // Retire les paramètres d'erreur de l'URL (ils ne contiennent pas de secret utile).
