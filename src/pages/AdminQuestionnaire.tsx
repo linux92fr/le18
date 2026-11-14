@@ -81,18 +81,35 @@ const AdminQuestionnaire = () => {
   };
 
   const chartColors = ["#b91c1c", "#0f766e", "#2563eb", "#9333ea", "#d97706", "#475569", "#db2777", "#0891b2"];
-  const ChartPanel = ({ title, items }: { title: string; items: [string, number][] }) => (
-    <section className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm print:break-inside-avoid">
+  const ChartPanel = ({ title, items }: { title: string; items: [string, number][] }) => {
+    // Réserver une ligne par réponse et éviter que les libellés longs se chevauchent.
+    const chartHeight = Math.max(240, items.length * 48 + 48);
+    const labelWidth = 190;
+
+    return (
+    <section className="min-w-0 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm print:break-inside-avoid">
       <h2 className="mb-4 text-lg font-black text-slate-900">{title}</h2>
       {items.length === 0 ? <p className="text-sm text-slate-500">Aucune réponse pour le moment.</p> : <>
-        <div className="h-64 w-full">
+        <div className="w-full min-w-0" style={{ height: chartHeight }}>
           <ResponsiveContainer width="100%" height="100%">
-            <BarChart data={items.map(([label, count]) => ({ label, count }))} layout="vertical" margin={{ top: 4, right: 18, left: 8, bottom: 4 }}>
+            <BarChart
+              data={items.map(([label, count]) => ({ label, count }))}
+              layout="vertical"
+              margin={{ top: 8, right: 18, left: 8, bottom: 8 }}
+              barCategoryGap="24%"
+            >
               <CartesianGrid strokeDasharray="3 3" horizontal={false} />
               <XAxis type="number" allowDecimals={false} />
-              <YAxis type="category" dataKey="label" width={150} tick={{ fontSize: 11 }} />
+              <YAxis
+                type="category"
+                dataKey="label"
+                width={labelWidth}
+                interval={0}
+                tick={{ fontSize: 10, width: labelWidth - 12 }}
+                tickFormatter={(value: string) => value.length > 42 ? `${value.slice(0, 39)}…` : value}
+              />
               <Tooltip formatter={(value) => [value, "Réponses"]} />
-              <Bar dataKey="count" radius={[0, 5, 5, 0]}>{items.map((_, index) => <Cell key={index} fill={chartColors[index % chartColors.length]} />)}</Bar>
+              <Bar dataKey="count" barSize={24} radius={[0, 5, 5, 0]}>{items.map((_, index) => <Cell key={index} fill={chartColors[index % chartColors.length]} />)}</Bar>
             </BarChart>
           </ResponsiveContainer>
         </div>
@@ -101,7 +118,8 @@ const AdminQuestionnaire = () => {
         </div>
       </>}
     </section>
-  );
+    );
+  };
 
   if (checking) return <main className="grid min-h-screen place-items-center text-slate-500">Vérification des autorisations…</main>;
   if (!allowed) return <main className="grid min-h-screen place-items-center bg-slate-50 px-5"><div className="max-w-md rounded-2xl border bg-white p-8 text-center shadow-sm"><ShieldCheck className="mx-auto h-10 w-10 text-red-600"/><h1 className="mt-4 text-xl font-black">Accès réservé</h1><p className="mt-2 text-sm text-slate-600">Cette page est réservée aux administrateurs autorisés du site. Connectez-vous avec un compte administrateur.</p><Link to="/admin" className="mt-5 inline-flex rounded-lg bg-red-600 px-4 py-2.5 font-bold text-white">Accéder à l’administration</Link></div></main>;
