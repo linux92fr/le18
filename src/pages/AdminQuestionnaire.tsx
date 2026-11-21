@@ -127,11 +127,11 @@ const AdminQuestionnaire = () => {
   return <main className="min-h-screen bg-slate-50 print:bg-white">
     <header className="border-b bg-white print:hidden"><div className="mx-auto flex max-w-7xl flex-wrap items-center justify-between gap-3 px-5 py-4">
       <Link to="/admin" className="inline-flex items-center gap-2 text-sm font-semibold text-slate-600 hover:text-red-700"><ArrowLeft className="h-4 w-4"/> Administration</Link>
-      <div className="flex items-center gap-2 text-sm font-black text-slate-900"><MessageSquareText className="h-5 w-5 text-red-600"/> Bilan du questionnaire</div>
+      <div className="flex items-center gap-2 text-sm font-black text-slate-900"><MessageSquareText className="h-5 w-5 text-red-600"/> Résultats de la consultation</div>
       <div className="flex flex-wrap gap-2"><button onClick={load} disabled={loading} className="inline-flex items-center gap-2 rounded-lg border px-3 py-2 text-sm font-semibold disabled:opacity-50"><RefreshCw className={"h-4 w-4 "+(loading?"animate-spin":"")}/> Actualiser</button><button onClick={exportCsv} disabled={!rows.length} className="inline-flex items-center gap-2 rounded-lg bg-red-600 px-3 py-2 text-sm font-bold text-white disabled:opacity-50"><Download className="h-4 w-4"/> Export CSV</button><button onClick={exportPdf} disabled={!rows.length} className="inline-flex items-center gap-2 rounded-lg bg-slate-900 px-3 py-2 text-sm font-bold text-white disabled:opacity-50 print:hidden"><FileDown className="h-4 w-4"/> Export PDF</button></div>
     </div></header>
     <div className="mx-auto max-w-7xl space-y-6 px-5 py-8 print:max-w-none print:px-0 print:py-2">
-      <div><h1 className="text-3xl font-black text-slate-950">Écoute des salariés ILIAD</h1><p className="mt-1 text-slate-600">Résultats des réponses au questionnaire post-mobilisation du 5 novembre 2026.</p></div>
+      <div><h1 className="text-3xl font-black text-slate-950">Écoute des salariés ILIAD</h1><p className="mt-1 text-slate-600">Résultats de la consultation post-mobilisation du 5 novembre 2026. Les nouvelles réponses sont fermées.</p></div>
       {errorMessage && <div className="rounded-xl border border-amber-200 bg-amber-50 p-4 text-sm text-amber-900">{errorMessage}</div>}
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         <div className="rounded-2xl bg-slate-950 p-5 text-white"><p className="text-sm text-white/65">Réponses reçues</p><p className="mt-2 text-4xl font-black tabular-nums">{rows.length}</p></div>
