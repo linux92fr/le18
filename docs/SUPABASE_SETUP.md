@@ -17,6 +17,10 @@ Dans le projet Supabase, ouvrir **SQL Editor**, puis exécuter le contenu de `su
 
 La migration crée les tables `mobilisation_events` et `admin_users`, les index, le déclencheur de mise à jour et les politiques RLS.
 
+La consultation post-mobilisation du 5 novembre est désormais fermée. La migration
+`supabase/migrations/202611210002_close_mobilisation_feedback.sql` supprime l'autorisation
+d'insertion publique tout en conservant la lecture réservée aux administrateurs autorisés.
+
 ## 3. Créer le compte administrateur
 
 1. Dans **Authentication > Providers**, vérifier que le fournisseur Email est activé.
